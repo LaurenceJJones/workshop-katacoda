@@ -4,6 +4,6 @@ For the demo we will turn on WAL support, the only reason you would not enable t
 
 ```
 echo "db_config:
-  use_wal: true" >> /etc/crowdsec/config.yaml.local
+  use_wal: true" > /etc/crowdsec/config.yaml.local
 systemctl restart crowdsec.service
 ```{{ exec }}

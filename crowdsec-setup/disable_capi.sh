@@ -1,0 +1,1 @@
+ssh root@host01 "echo "" > /etc/crowdsec/online_api_credentials.yaml; systemctl restart crowdsec"

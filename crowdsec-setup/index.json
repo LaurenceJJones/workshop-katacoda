@@ -35,6 +35,7 @@
       },
       {
         "title": "Working with cscli",
+        "courseData": "disable_capi.sh",
         "text": "step2_1.md"
       },
       {
