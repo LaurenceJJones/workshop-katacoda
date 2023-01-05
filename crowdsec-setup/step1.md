@@ -8,7 +8,6 @@ Great, now we can install the `CrowdSec agent`:
 
 >`CrowdSec agent` allows you to detect bad behaviors by analyzing log files and other data sources.
 
-During the installation, all supported services will be automatically detected and configured.
-To check or extend the settings again, simply run the `Wizard`:
+Once crowdsec is installed we can install the bouncers!
 
-`/usr/share/crowdsec/wizard.sh -c`{{execute T1}}
+`apt install crowdsec-firewall-bouncer-iptables crowdsec-nginx-bouncer -y`{{execute T1}}
