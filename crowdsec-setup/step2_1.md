@@ -1,8 +1,4 @@
-Let's check out and run some useful commands with the CrowdSec CLI `cscli`{{}}.
-
-To get an overview of all options, just run the command:
-
-`cscli -h`{{execute T1}}
+## Install Bash Completion
 
 If you want to access all options easier and faster, just install the bash completion:
 
@@ -16,6 +12,12 @@ Test it out by typing:
 
 ## Cscli syntax
 
+Let's check out and run some useful commands with the CrowdSec CLI `cscli`{{}}.
+
+To get an overview of all options, just run the command:
+
+`cscli -h`{{execute T1}}
+
 Cscli commands are built to be self expressive the syntax is
 
 `cscli <command> <subcommand>`{{}}
@@ -24,14 +26,32 @@ So for example `cscli parsers list`{{exec}}. Lists all locally installed parsers
 
 ## Collections examples
 
-Here a few collection examples to get you used to the syntax
+Here a few collection examples to get you used to the syntax, collections command is commonly used as it allows you to update parsers/scenarios with one command.
 
-`echo -e "List local installed collections\n" && cscli collections list`{{exec}}
+`cscli collections list`{{exec}} List local install collections
 
-`echo -e "List ALL available collections\n" && cscli collections list  -a`{{exec}}
+`cscli collections list  -a`{{exec}} list ALL available collections
 
-`cscli collections install crowdsecurity/iptables`{{exec}}
+`cscli collections install crowdsecurity/iptables`{{exec}} install a collection
 
-`cscli collections upgrade crowdsecurity/iptables`{{exec}}
+`cscli collections upgrade crowdsecurity/iptables`{{exec}} upgrade a collection
 
-`cscli collections upgrade -a`{{exec}}
+`cscli collections upgrade -a`{{exec}} upgrade all installed collections
+
+## Handeling decisions
+
+Whilst working with crowdsec there may come a time when you need to add or remove decisions.
+
+Add manual decision
+
+`cscli decisions add --ip 1.2.3.4`{{exec}}
+
+Delete a decision
+
+`cscli decisions list`{{exec}}
+
+`cscli decisions delete --id #`
+
+Delete a decision by ip
+
+`cscli decisions delete --ip 1.2.3.4`{{exec}}

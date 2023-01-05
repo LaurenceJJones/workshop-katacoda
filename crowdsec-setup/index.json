@@ -34,11 +34,11 @@
         "text": "step1_2.md"
       },
       {
-        "title": "Install Bash Completion",
+        "title": "Working with cscli",
         "text": "step2_1.md"
       },
       {
-        "title": "Run CLI",
+        "title": "Working with cscli",
         "text": "step2_2.md"
       },
       {
@@ -73,6 +73,6 @@
       "text": "finish.md"
     }
   },
-  "title": "Getting started with CrowdSec",
+  "title": "Crowdsec Absolute Beginners Workshop",
   "description": "Learn how to setup CrowdSec and secure your environment."
 }
