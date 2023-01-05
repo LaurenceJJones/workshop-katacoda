@@ -24,7 +24,7 @@ Cscli commands are built to be self expressive the syntax is
 
 So for example `cscli parsers list`{{exec}}. Lists all locally installed parsers, however, if you wish to get all information for a command/subcommand you can apply `-h`{{}} flag. `cscli parsers list -h`{{exec}}
 
-## Collections examples
+## <ins>Collections examples</ins>
 
 Here a few collection examples to get you used to the syntax, collections command is commonly used as it allows you to update parsers/scenarios with one command.
 
