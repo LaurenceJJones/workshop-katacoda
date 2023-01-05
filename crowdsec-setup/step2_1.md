@@ -17,16 +17,21 @@ Test it out by typing:
 ## Cscli syntax
 
 Cscli commands are built to be self expressive the syntax is
+
 `cscli <command> <subcommand>`{{}}
 
-So for example `cscli parsers list`{{exec}}. Lists all locally installed parsers, however, if you wish to get all options for a command/subcommand you can apply `-h`{{}} option.
+So for example `cscli parsers list`{{exec}}. Lists all locally installed parsers, however, if you wish to get all information for a command/subcommand you can apply `-h`{{}} flag. `cscli parsers list -h`{{exec}}
 
 ## Collections examples
 
 Here a few collection examples to get you used to the syntax
 
 `echo -e "List local installed collections\n" && cscli collections list`{{exec}}
+
 `echo -e "List ALL available collections\n" && cscli collections list  -a`{{exec}}
+
 `cscli collections install crowdsecurity/iptables`{{exec}}
+
 `cscli collections upgrade crowdsecurity/iptables`{{exec}}
+
 `cscli collections upgrade -a`{{exec}}
