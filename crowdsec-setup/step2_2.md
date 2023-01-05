@@ -2,7 +2,7 @@ Crowdsec has the ability to process "cold" logs. This can be useful if you wish 
 
 ```
 crowdsec -dsn file:///root/pwn.log --type nginx -no-api
-```{{exec}}
+```{{exec interrupt}}
 
 Example output
 
