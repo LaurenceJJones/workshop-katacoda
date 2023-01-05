@@ -57,7 +57,7 @@
     ],
     "assets": {
         "host01": [
-            {"file": "auth.log", "target": "/root/"},
+            {"file": "pwn.log", "target": "/root/"},
             {"file": ".bashrc", "target": "/root/"}
         ]
     },
