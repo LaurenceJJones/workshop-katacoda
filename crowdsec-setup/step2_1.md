@@ -38,7 +38,7 @@ Here a few collection examples to get you used to the syntax, collections comman
 
 `cscli collections upgrade -a`{{exec}} upgrade all installed collections
 
-## Handeling decisions
+## Handling decisions
 
 Whilst working with crowdsec there may come a time when you need to add or remove decisions.
 
