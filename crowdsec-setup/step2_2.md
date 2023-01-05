@@ -7,18 +7,16 @@ crowdsec -dsn file:///root/pwn.log --type nginx -no-api
 Example output
 
 ```
-INFO[21-09-2022 12:31:33] Adding file /home/workshop/pwnspoof.log to filelist  type="file:///home/workshop/pwnspoof.log"
-INFO[21-09-2022 12:31:33] Starting processing data                     
-INFO[21-09-2022 12:31:33] reading /home/workshop/pwnspoof.log at once   type="file:///home/workshop/pwnspoof.log"
-WARN[21-09-2022 12:31:33] prometheus: listen tcp 127.0.0.1:6060: bind: address already in use 
-INFO[21-09-2022 12:31:35] Ip 135.118.0.47 performed 'LePresidente/http-generic-401-bf' (7 events over 13s) at 2022-09-09 20:21:32 +0000 UTC 
-INFO[21-09-2022 12:31:42] Ip 199.19.52.132 performed 'LePresidente/http-generic-401-bf' (7 events over 12s) at 2022-09-12 09:24:23 +0000 UTC 
-INFO[21-09-2022 12:32:04] Ip 103.121.204.144 performed 'LePresidente/http-generic-401-bf' (7 events over 13s) at 2022-09-20 22:11:22 +0000 UTC 
-…….
-INFO[21-09-2022 12:32:06] Ip 23.32.183.126 performed 'LePresidente/http-generic-401-bf' (7 events over 14s) at 2022-09-20 22:14:48 +0000 UTC 
-INFO[21-09-2022 12:32:07] Ip 23.32.183.126 performed 'LePresidente/http-generic-401-bf' (7 events over 11s) at 2022-09-20 22:16:01 +0000 UTC 
-WARN[21-09-2022 12:32:09] Acquisition is finished, shutting down       
-INFO[21-09-2022 12:32:09] Killing parser routines                      
-INFO[21-09-2022 12:32:10] Bucket routine exiting                       
-INFO[21-09-2022 12:32:11] crowdsec shutdown
+INFO[05-01-2023 20:35:11] Adding file /root/pwn.log to filelist         type="file:///root/pwn.log"
+INFO[05-01-2023 20:35:11] Starting processing data                     
+INFO[05-01-2023 20:35:11] reading /root/pwn.log at once                 type="file:///root/pwn.log"
+WARN[05-01-2023 20:35:11] prometheus: listen tcp 127.0.0.1:6060: bind: address already in use 
+INFO[05-01-2023 20:35:18] Ip 158.50.194.86 performed 'LePresidente/http-generic-401-bf' (7 events over 12s) at 2022-12-27 13:08:24 +0000 UTC 
+INFO[05-01-2023 20:35:19] Ip 158.50.194.86 performed 'LePresidente/http-generic-401-bf' (7 events over 13s) at 2022-12-27 13:09:35 +0000 UTC 
+INFO[05-01-2023 20:35:20] Ip 158.50.194.86 performed 'LePresidente/http-generic-401-bf' (7 events over 14s) at 2022-12-27 13:10:48 +0000 UTC 
+INFO[05-01-2023 20:35:36] Ip 173.195.57.15 performed 'LePresidente/http-generic-401-bf' (7 events over 11s) at 2023-01-05 11:55:37 +0000 UTC 
+WARN[05-01-2023 20:35:37] Acquisition is finished, shutting down       
+INFO[05-01-2023 20:35:37] Killing parser routines                      
+INFO[05-01-2023 20:35:38] Bucket routine exiting                       
+INFO[05-01-2023 20:35:39] crowdsec shutdown
 ```{{}}
