@@ -22,9 +22,11 @@ Cscli commands are built to be self expressive the syntax is
 
 `cscli <command> <subcommand>`{{}}
 
-So for example `cscli parsers list`{{exec}}. Lists all locally installed parsers, however, if you wish to get all information for a command/subcommand you can apply `-h`{{}} flag. `cscli parsers list -h`{{exec}}
+Example `cscli parsers list`{{exec}} lists all locally installed parsers, however, if you wish to get all information for a command/subcommand you can apply `-h`{{}} flag.
 
-## <ins>Collections examples</ins>
+`cscli parsers list -h`{{exec}}
+
+## Collections examples
 
 Here a few collection examples to get you used to the syntax, collections command is commonly used as it allows you to update parsers/scenarios with one command.
 
@@ -36,7 +38,7 @@ Here a few collection examples to get you used to the syntax, collections comman
 
 `cscli collections upgrade crowdsecurity/iptables`{{exec}} upgrade a collection
 
-`cscli collections upgrade -a`{{exec}} upgrade all installed collections
+`cscli collections upgrade -a`{{exec}} upgrade ALL installed collections
 
 ## Handling decisions
 
