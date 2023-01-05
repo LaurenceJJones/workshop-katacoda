@@ -6,7 +6,7 @@ Great, now we can install the `CrowdSec agent`:
 
 `apt install crowdsec -y`{{execute T1}}
 
->`CrowdSec agent` allows you to detect bad behaviors by analyzing log files and other data sources.
+>`CrowdSec agent`{{}} allows you to detect bad behaviors by analyzing log files and other data sources.
 
 Once crowdsec is installed we can install the bouncers!
 
