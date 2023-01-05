@@ -27,7 +27,11 @@
     "steps": [
       {
         "title": "Install Agent",
-        "text": "step1.md"
+        "text": "step1_1.md"
+      },
+      {
+        "title": "Enable WAL",
+        "text": "step1_2.md"
       },
       {
         "title": "Run CLI",

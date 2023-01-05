@@ -1,11 +1,11 @@
 ![CrowdSec Logo](./assets/logo_crowdsec.png)
 
-CrowdSec is a free, open-source and collaborative IPS.
+## CrowdSec is a free, open-source and collaborative IPS.
 
 In this workshop, you will learn how to setup CrowdSec, Bouncers and working with CSCLI tool.
 It will explain the essential aspects and the design decisions that you need to be aware of.
 
->Crowdsec Taxonomy
+### Crowdsec Taxonomy
 
 Word | Description
 ---|---
