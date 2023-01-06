@@ -16,7 +16,7 @@ We want to provide a block page to users that have an active decision against th
 
 #### Edit profiles.yaml
 
-We need to have a separate decision that is made that the firewall bouncer does not act upon. In this example we will use "captcha".
+We need to have a separate decision type so the firewall bouncer does not act upon. In this example we will use "captcha".
 
 ```
 echo "
