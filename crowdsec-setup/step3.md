@@ -22,7 +22,7 @@ We need to have a separate decision that is made that the firewall bouncer does 
 echo "
 name: captcha_remediation
 filters:
-  - Alert.Remediation == true && Alert.GetScope() == "Ip" && Alert.GetScenario() contains "http"
+  - Alert.Remediation == true && Alert.GetScope() == \"Ip\" && Alert.GetScenario() contains \"http\"
 decisions:
  - type: captcha
    duration: 4h
