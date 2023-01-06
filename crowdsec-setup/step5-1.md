@@ -3,13 +3,13 @@ This allows you to visualize all your data in a nice local web dashboard.
 
 To setup and start your own dashboard run:
 
-`cscli dashboard -l 0.0.0.0 setup`{{execute T1}}
+`cscli dashboard -l 0.0.0.0 setup`{{exec interrupt}}
 
 After successful installation, you will get the credentials for the dashboard.
 Dashboard URL: [Link]({{TRAFFIC_HOST1_3000}})
 
 If you want to see more data in the dashboard, just import the file `pwn.log`:
 
-`crowdsec -dsn file:///root/pwn.log --type nginx -no-api`{{execute T1}}
+`crowdsec -dsn file:///root/pwn.log --type nginx -no-api`{{exec}}
 
 This file contains multiple log entries from attacks.

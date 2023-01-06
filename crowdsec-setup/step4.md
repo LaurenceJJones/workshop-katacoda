@@ -43,3 +43,7 @@ Once connected we can attack the website with `nikto`{{}}:
 `nikto -h http://controlplane`{{exec}}
 
 Then we can check if the attack has been detect by going to this [LINK]({{TRAFFIC_HOST2_8080}})
+
+>I just see the default nginx page?
+
+>Press ctrl + shift + r to force a reload. This links back to the internal timer on the bouncer it will get the new decisions within 10 seconds.
