@@ -32,4 +32,4 @@ on_success: break
 cat /etc/crowdsec/profiles.yaml >> /tmp/profiles.yaml
 mv /tmp/profiles.yaml /etc/crowdsec/profiles.yaml
 systemctl restart crowdsec.service
-```
+```{{exec}}
