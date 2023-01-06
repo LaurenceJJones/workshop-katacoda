@@ -3,8 +3,6 @@ This service allows you to analyze multiple instances in one central web dashboa
 
 To use this service, just sign up at [CrowdSec Console](https://app.crowdsec.net).
 
-There you will find the enroll command with your personal key:
+When logging in for the first time you will be presented with your enrollment key. If you cannot find this, head into the `instances`{{}} tab and find `add instance`{{}}. Clicking on this will show you your enrollment key.
 
-`cscli enroll <key>`
-
-Run this command on your local machine and confirm the message in CrowdSec Console.
+>It is important you keep this safe as the enrollment key is unique to your account and should not be shared.

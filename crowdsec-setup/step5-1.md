@@ -8,8 +8,8 @@ To setup and start your own dashboard run:
 After successful installation, you will get the credentials for the dashboard.
 Dashboard URL: [Link]({{TRAFFIC_HOST1_3000}})
 
-If you want to see more data in the dashboard, just import the file `auth.log`:
+If you want to see more data in the dashboard, just import the file `pwn.log`:
 
-`crowdsec -dsn file:///root/auth.log --type syslog -no-api`{{execute T1}}
+`crowdsec -dsn file:///root/pwn.log --type nginx -no-api`{{execute T1}}
 
 This file contains multiple log entries from attacks.
