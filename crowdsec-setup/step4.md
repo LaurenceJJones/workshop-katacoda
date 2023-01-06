@@ -24,9 +24,13 @@ Whilst the program is running return to original tab to see if crowdsec is detec
 
 `cscli decisions list`{{exec interrupt}}
 
-For the next attack to work we will need to remove the decision so please run
+For the next attack to work we will need to remove the decisions so please run
 
-`cscli decisions delete --id #`
+```
+cscli decisions delete --scenario crowdsecurity/ssh-bf
+cscli decisions delete --scenario crowdsecurity/ssh-slow-bf
+tail -f /var/log/crowdsec.log
+```{{exec}}
 
 ## Web attacks
 
@@ -34,7 +38,7 @@ Once the ssh decision has been removed. Return to the attacker tab, we will run 
 
 `ssh -L 0.0.0.0:8080:controlplane:80 localhost`{{exec interrupt}}
 
-Once connected we can attack the website.
+Once connected we can attack the website with `nikto`{{}}: 
 
 `nikto -h http://controlplane`{{exec}}
 
