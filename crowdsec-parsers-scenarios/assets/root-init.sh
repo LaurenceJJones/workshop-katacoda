@@ -1,0 +1,1 @@
+echo "rootteam" > /tmp/custom.txt

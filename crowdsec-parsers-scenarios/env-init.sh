@@ -1,1 +1,1 @@
-echo "does this just init from here?" > /tmp/custom.txt
+ssh root@ubuntu "chmod +x /root/root-init.sh;/root/root-init.sh"
