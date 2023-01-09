@@ -1,0 +1,32 @@
+{
+    "live": true,
+    "pathwayId": "crowdsecps",
+    "pathwayTitle": "crowdsecps",
+    "id": "crowdsec-parser-scenarios",
+    "backend": {
+      "imageid": "ubuntu"
+    },
+    "environment": {
+      "hideintro": false,
+      "hidefinish": false,
+      "showide": false
+    },
+    "details": {
+      "steps": [
+      ],
+      "assets": {
+          "host01": [
+          ]
+      },
+      "intro": {
+        "courseData": "env-init.sh",
+        "text": "intro.md"
+      },
+      "finish": {
+        "text": "finish.md"
+      }
+    },
+    "title": "Crowdsec Parsers and Scenarios for beginners",
+    "description": "Learn how to develop a parser and scenario"
+  }
+  
