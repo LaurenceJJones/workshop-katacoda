@@ -9,7 +9,7 @@ import (
 
 func main() {
 	var password string
-	flag.StringVar(&password, "password", "", "Password arg")
+	flag.StringVar(&password, "password", "password", "Password arg")
 	flag.Parse()
 	router := gin.Default()
 	fmt.Println(password)
