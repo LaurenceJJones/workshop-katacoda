@@ -7,7 +7,6 @@
       ],
       "assets": {
           "host01": [
-            {"file": "root-init.sh", "target": "/root/"}
           ]
       },
       "intro": {

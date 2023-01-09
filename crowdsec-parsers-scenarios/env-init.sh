@@ -1,1 +1,1 @@
-ssh root@ubuntu "chmod +x /root/root-init.sh;/root/root-init.sh"
+echo "another test" > /tmp/custom.txt
