@@ -1,1 +1,29 @@
-hello world!
+<form action="/" method="post">
+
+    <div style="border: 1px solid lightgray; border-radius: 3px;padding: 15px;">
+        {{if .content}}
+        <div>
+          {{.content}}
+        </div>
+
+        {{end}}
+      <div>
+        <label>Username</label>
+        <div>
+          <input type="text" placeholder="Enter Username" name="username" required>
+        </div>
+      </div>
+
+      <div>
+        <label>Password</label>
+        <div>
+          <input type="password" placeholder="Enter Password" name="password" required>
+        </div>
+      </div>
+
+      <div>
+        <button>Submit</button>
+      </div>
+
+    </div>
+  </form>
