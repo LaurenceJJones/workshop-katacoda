@@ -2,17 +2,17 @@ package main
 
 import (
 	"flag"
-	"fmt"
 
 	"github.com/gin-gonic/gin"
 )
 
+var password, user string
+
 func main() {
-	var password string
+	flag.StringVar(&user, "user", "user", "User arg")
 	flag.StringVar(&password, "password", "password", "Password arg")
 	flag.Parse()
 	router := gin.Default()
-	fmt.Println(password)
 	router.LoadHTMLGlob("templates/*.html")
 
 	index := router.Group("/")
