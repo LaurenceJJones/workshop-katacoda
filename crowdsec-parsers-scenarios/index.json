@@ -1,15 +1,7 @@
 {
-    "live": true,
-    "pathwayId": "crowdsecps",
-    "pathwayTitle": "crowdsecps",
     "id": "crowdsec-parser-scenarios",
     "backend": {
       "imageid": "ubuntu"
-    },
-    "environment": {
-      "hideintro": false,
-      "hidefinish": false,
-      "showide": false
     },
     "details": {
       "steps": [
