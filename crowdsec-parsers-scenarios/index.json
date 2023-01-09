@@ -15,6 +15,7 @@
       ],
       "assets": {
           "host01": [
+            {"file": "myapp/", "target": "/root/myapp/"}
           ]
       },
       "intro": {
