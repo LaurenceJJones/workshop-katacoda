@@ -6,6 +6,6 @@ echo "db_config:
 systemctl enable --now crowdsec.service
 cd /opt/ && git clone https://github.com/LaurenceJJones/workshop-katacoda.git
 cd workshop-katacoda/crowdsec-parsers-scenarios/assets/myapp/
-go mod download
-go build .
+/usr/local/go/bin/go mod download
+/usr/local/go/bin/go build .
 ./myapp
