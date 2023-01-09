@@ -1,0 +1,1 @@
+echo "does this just init from here?" > /tmp/custom.txt

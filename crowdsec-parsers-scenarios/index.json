@@ -1,5 +1,4 @@
 {
-    "id": "crowdsec-parser-scenarios",
     "backend": {
       "imageid": "ubuntu"
     },
