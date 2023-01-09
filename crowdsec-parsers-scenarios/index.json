@@ -4,6 +4,14 @@
     },
     "details": {
       "steps": [
+        {
+          "title": "Understand parsing steps",
+          "text": "step1.md"
+        },
+        {
+          "title": "Parser yaml syntax",
+          "text": "step2/1.md"
+        }
       ],
       "assets": {
           "host01": [
