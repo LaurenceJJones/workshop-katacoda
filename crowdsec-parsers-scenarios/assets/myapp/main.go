@@ -137,5 +137,5 @@ func EmptyUserPass(u, p string) bool {
 }
 
 func formatLog(c *gin.Context, s string) {
-	log.Printf("%s %s %s", time.Now().Format(time.RFC3339), c.RemoteIP(), s)
+	log.Printf("%s %s %s", time.Now().Format(time.RFC3339), "10.10.10.10", s)
 }
