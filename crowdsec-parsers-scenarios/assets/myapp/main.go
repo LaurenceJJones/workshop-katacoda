@@ -3,8 +3,11 @@ package main
 import (
 	"flag"
 	"fmt"
+	"log"
 	"net/http"
+	"os"
 	"strings"
+	"time"
 
 	"github.com/gin-contrib/sessions"
 	"github.com/gin-contrib/sessions/cookie"
@@ -19,10 +22,16 @@ func main() {
 	flag.StringVar(&password, "password", "password", "Password arg")
 	flag.Parse()
 	router := gin.Default()
+	router.SetTrustedProxies([]string{"0.0.0.0/0"})
 	router.LoadHTMLGlob("templates/*.html")
-
+	f, err := os.OpenFile("/var/log/myapp.log", os.O_WRONLY|os.O_CREATE|os.O_APPEND, 0644)
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer f.Close()
+	log.SetOutput(f)
+	log.SetFlags(0)
 	router.Use(sessions.Sessions("session", cookie.NewStore([]byte("sup3rs3cr3t"))))
-
 	i := router.Group("/")
 	{
 		i.GET("/", func(c *gin.Context) {
@@ -53,11 +62,13 @@ func main() {
 			p := c.PostForm("password")
 
 			if EmptyUserPass(u, p) {
+				formatLog(c, "provided empty username or password")
 				c.HTML(http.StatusBadRequest, "index.html", gin.H{"content": "Parameters can't be empty"})
 				return
 			}
 
 			if !CheckUserPass(u, p) {
+				formatLog(c, fmt.Sprintf("invalid login request USER=(%s)", u))
 				c.HTML(http.StatusUnauthorized, "index.html", gin.H{"content": "Incorrect username or password"})
 				return
 			}
@@ -76,8 +87,8 @@ func main() {
 		p.Use(func(c *gin.Context) {
 			session := sessions.Default(c)
 			user := session.Get("user")
-			fmt.Println("Auth middleware", user)
 			if user == nil {
+				formatLog(c, fmt.Sprintf("unauthorized request URI=(%s)", c.Request.RequestURI))
 				c.Redirect(http.StatusMovedPermanently, "/")
 				c.Abort()
 				return
@@ -107,6 +118,10 @@ func main() {
 			c.Redirect(http.StatusMovedPermanently, "/")
 		})
 	}
+	router.NoRoute(func(c *gin.Context) {
+		formatLog(c, fmt.Sprintf("resource not found URI=(%s)", c.Request.RequestURI))
+		c.Redirect(301, "/")
+	})
 	router.Run("0.0.0.0:3000")
 }
 
@@ -119,4 +134,8 @@ func CheckUserPass(u, p string) bool {
 
 func EmptyUserPass(u, p string) bool {
 	return strings.Trim(u, " ") == "" || strings.Trim(p, " ") == ""
+}
+
+func formatLog(c *gin.Context, s string) {
+	log.Printf("%s %s %s", time.Now().Format(time.RFC3339), c.RemoteIP(), s)
 }
