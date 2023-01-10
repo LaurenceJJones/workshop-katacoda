@@ -3,6 +3,7 @@ curl -s https://packagecloud.io/install/repositories/crowdsec/crowdsec/script.de
 apt install crowdsec -y
 echo "db_config:
   use_wal: true" > /etc/crowdsec/config.yaml.local
+cscli parsers remove crowdsecurity/whitelists
 systemctl enable --now crowdsec.service
 cd /opt/ && git clone https://github.com/LaurenceJJones/workshop-katacoda.git
 cd workshop-katacoda/crowdsec-parsers-scenarios/assets/myapp/
