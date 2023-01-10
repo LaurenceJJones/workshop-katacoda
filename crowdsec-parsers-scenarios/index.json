@@ -13,12 +13,24 @@
           "text": "step2/1.md"
         },
         {
-          "title": "NAME",
+          "title": "Parser syntax: NAME",
           "text": "step2/2.md"
         },
         {
-          "title": "DEBUG",
+          "title": "Parser syntax: DEBUG",
           "text": "step2/3.md"
+        },
+        {
+          "title": "Parser syntax: FILTER",
+          "text": "step2/4.md"
+        },
+        {
+          "title": "Parser syntax: ONSUCCESS",
+          "text": "step2/5.md"
+        },
+        {
+          "title": "Parser syntax: DESCRIPTION",
+          "text": "step2/6.md"
         }
       ],
       "intro": {
@@ -32,4 +44,3 @@
     "title": "Crowdsec Parsers and Scenarios for beginners",
     "description": "Learn how to develop a parser and scenario"
   }
-  
