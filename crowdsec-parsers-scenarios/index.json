@@ -31,6 +31,10 @@
         {
           "title": "Parser syntax: DESCRIPTION",
           "text": "step2/6.md"
+        },
+        {
+          "title": "Parser syntax: NODES",
+          "text": "step2/7.md"
         }
       ],
       "intro": {
