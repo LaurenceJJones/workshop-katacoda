@@ -11,6 +11,14 @@
         {
           "title": "Parser yaml syntax",
           "text": "step2/1.md"
+        },
+        {
+          "title": "NAME",
+          "text": "step2/2.md"
+        },
+        {
+          "title": "DEBUG",
+          "text": "step2/3.md"
         }
       ],
       "intro": {
