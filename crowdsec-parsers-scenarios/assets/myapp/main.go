@@ -22,7 +22,7 @@ func main() {
 	flag.StringVar(&password, "password", "password", "Password arg")
 	flag.Parse()
 	router := gin.Default()
-	router.SetTrustedProxies([]string{"0.0.0.0/0"})
+	router.ForwardedByClientIP = true
 	router.LoadHTMLGlob("templates/*.html")
 	f, err := os.OpenFile("/var/log/myapp.log", os.O_WRONLY|os.O_CREATE|os.O_APPEND, 0644)
 	if err != nil {
