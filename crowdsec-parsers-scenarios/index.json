@@ -43,6 +43,10 @@
         {
           "title": "Parser syntax: STATICS",
           "text": "step2/9.md"
+        },
+        {
+          "title": "Parser syntax summary",
+          "text": "step2/10.md"
         }
       ],
       "intro": {
