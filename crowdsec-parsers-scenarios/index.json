@@ -39,6 +39,10 @@
         {
           "title": "Parser syntax: NODE",
           "text": "step2/8.md"
+        },
+        {
+          "title": "Parser syntax: STATICS",
+          "text": "step2/9.md"
         }
       ],
       "intro": {
