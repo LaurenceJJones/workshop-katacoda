@@ -47,6 +47,14 @@
         {
           "title": "Parser syntax summary",
           "text": "step2/10.md"
+        },
+        {
+          "title": "Lets make some scenarios!",
+          "text": "step3/1.md"
+        },
+        {
+          "title": "Scenario syntax: type",
+          "text": "step3/2.md"
         }
       ],
       "intro": {
