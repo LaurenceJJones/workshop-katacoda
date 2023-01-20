@@ -75,6 +75,14 @@
         {
           "title": "Scenario syntax: capacity",
           "text": "step3/7.md"
+        },
+        {
+          "title": "Scenario syntax: blackhole",
+          "text": "step3/8.md"
+        },
+        {
+          "title": "Scenario syntax: groupby",
+          "text": "step3/9.md"
         }
       ],
       "intro": {
