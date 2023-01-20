@@ -87,6 +87,18 @@
         {
           "title": "Scenario syntax: labels",
           "text": "step3/10.md"
+        },
+        {
+          "title": "Test your first scenario!",
+          "text": "step3/11.md"
+        },
+        {
+          "title": "Slower bruteforce bucket",
+          "text": "step4/1.md"
+        },
+        {
+          "title": "Scenario trigger bucket",
+          "text": "step4/1.md"
         }
       ],
       "intro": {
