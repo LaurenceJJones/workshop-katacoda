@@ -63,6 +63,18 @@
         {
           "title": "Scenario syntax: description",
           "text": "step3/4.md"
+        },
+        {
+          "title": "Scenario syntax: filter",
+          "text": "step3/5.md"
+        },
+        {
+          "title": "Scenario syntax: leakspeed",
+          "text": "step3/6.md"
+        },
+        {
+          "title": "Scenario syntax: capacity",
+          "text": "step3/7.md"
         }
       ],
       "intro": {
