@@ -55,6 +55,14 @@
         {
           "title": "Scenario syntax: type",
           "text": "step3/2.md"
+        },
+        {
+          "title": "Scenario syntax: name",
+          "text": "step3/3.md"
+        },
+        {
+          "title": "Scenario syntax: description",
+          "text": "step3/4.md"
         }
       ],
       "intro": {
