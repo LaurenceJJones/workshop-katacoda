@@ -83,6 +83,10 @@
         {
           "title": "Scenario syntax: groupby",
           "text": "step3/9.md"
+        },
+        {
+          "title": "Scenario syntax: labels",
+          "text": "step3/10.md"
         }
       ],
       "intro": {
