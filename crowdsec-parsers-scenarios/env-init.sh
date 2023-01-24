@@ -1,4 +1,4 @@
-echo 'githubciXXXXXXXXXXXXXXXXXXXXXXXX' > /etc/machine-id
+echo 'ffffffffffffffffffffffffffffffff' > /etc/machine-id
 curl -s https://packagecloud.io/install/repositories/crowdsec/crowdsec/script.deb.sh | bash
 apt install crowdsec -y
 echo "db_config:
