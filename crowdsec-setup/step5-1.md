@@ -1,15 +1,8 @@
-CrowdSec offers a local [Metabase](https://www.metabase.com) integration.
-This allows you to visualize all your data in a nice local web dashboard.
+CrowdSec offers also the cloud service [CrowdSec Console](https://app.crowdsec.net).
+This service allows you to analyze multiple instances in one central web dashboard.
 
-To setup and start your own dashboard run:
+To use this service, just sign up at [CrowdSec Console](https://app.crowdsec.net).
 
-`cscli dashboard -l 0.0.0.0 setup`{{exec interrupt}}
+When logging in for the first time you will be presented with your enrollment key. If you cannot find this, head into the `instances`{{}} tab and find `add instance`{{}}. Clicking on this will show you your enrollment key.
 
-After successful installation, you will get the credentials for the dashboard.
-Dashboard URL: [Link]({{TRAFFIC_HOST1_3000}})
-
-If you want to see more data in the dashboard, just import the file `pwn.log`:
-
-`crowdsec -dsn file:///root/pwn.log --type nginx -no-api`{{exec}}
-
-This file contains multiple log entries from attacks.
+>It is important you keep this safe as the enrollment key is unique to your account and should not be shared.
