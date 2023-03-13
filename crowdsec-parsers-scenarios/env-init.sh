@@ -16,4 +16,6 @@ cd /opt/ && git clone https://github.com/LaurenceJJones/workshop-katacoda.git
 cd workshop-katacoda/crowdsec-parsers-scenarios/assets/myapp/
 /usr/local/go/bin/go mod download
 /usr/local/go/bin/go build .
-./myapp -password=$(openssl rand -base64 12) -user=$(shuf -n 1 users.txt)
+MYAPP_PASSWORD=$(openssl rand -base64 12)
+MYAPP_USER=$(shuf -n 1 users.txt)
+./myapp

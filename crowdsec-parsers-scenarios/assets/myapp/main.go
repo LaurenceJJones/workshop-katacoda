@@ -1,7 +1,6 @@
 package main
 
 import (
-	"flag"
 	"fmt"
 	"log"
 	"net/http"
@@ -18,9 +17,13 @@ import (
 var password, user string
 
 func main() {
-	flag.StringVar(&user, "user", "user", "User arg")
-	flag.StringVar(&password, "password", "password", "Password arg")
-	flag.Parse()
+	var valid bool
+	if user, valid = os.LookupEnv("MYAPP_USER"); !valid {
+		log.Fatal("USER environment variable is not set")
+	}
+	if password, valid = os.LookupEnv("MYAPP_PASSWORD"); !valid {
+		log.Fatal("PASSWORD environment variable is not set")
+	}
 	router := gin.Default()
 	router.ForwardedByClientIP = true
 	router.LoadHTMLGlob("templates/*.html")

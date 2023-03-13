@@ -103,7 +103,15 @@
         {
           "title": "Scenario leaky crawler bucket",
           "text": "step4/3.md"
-        }
+        },
+	{
+	  "title": "Testing our scenarios",
+	  "text": "step5/1.md"
+	},
+	{
+	  "title": "Testing our scenarios",
+	  "text": "step5/2.md"
+	}
       ],
       "intro": {
         "courseData": "env-init.sh",
