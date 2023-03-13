@@ -110,6 +110,7 @@
 	},
 	{
 	  "title": "Testing our scenarios",
+          "courseData": "reset.sh",
 	  "text": "step5/2.md"
 	}
       ],
