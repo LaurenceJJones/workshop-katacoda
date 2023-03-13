@@ -5,6 +5,7 @@ echo "db_config:
   use_wal: true" > /etc/crowdsec/config.yaml.local
 cscli parsers remove crowdsecurity/whitelists
 systemctl enable --now crowdsec.service
+touch /var/log/myapp.log
 echo "
 ---
 filenames:
@@ -18,4 +19,5 @@ cd workshop-katacoda/crowdsec-parsers-scenarios/assets/myapp/
 /usr/local/go/bin/go build .
 export MYAPP_PASSWORD=$(openssl rand -base64 12)
 export MYAPP_USER=$(shuf -n 1 users.txt)
+systemctl reload crowdsec.service
 ./myapp
