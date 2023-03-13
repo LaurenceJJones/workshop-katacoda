@@ -112,6 +112,16 @@
 	  "title": "Testing our scenarios",
           "courseData": "reset.sh",
 	  "text": "step5/2.md"
+	},
+	{
+	  "title": "Testing our scenarios",
+          "courseData": "reset.sh",
+	  "text": "step5/3.md"
+	},
+	{
+	  "title": "Testing our scenarios",
+          "courseData": "reset.sh",
+	  "text": "step5/4.md"
 	}
       ],
       "intro": {
