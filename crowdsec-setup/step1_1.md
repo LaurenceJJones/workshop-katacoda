@@ -7,7 +7,7 @@ Great, now we can install the `CrowdSec Security Engine`{{}} it allows you to de
 
 `apt install crowdsec -y`{{execute T1}}
 
-Once crowdsec is installed we can install the remediation components!
+Once security engine is installed we can install the remediation components!
 
 ```
 apt install crowdsec-firewall-bouncer-iptables crowdsec-nginx-bouncer -y
