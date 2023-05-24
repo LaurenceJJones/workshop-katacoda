@@ -12,8 +12,8 @@ Word | Description
 Signal | Local information on a given attack
 LAPI | Local API. Used to control the various elements of the CrowdSec stack locally
 CAPI | Gets blocklists from community, sends signals to smoke Database
-Agent | Does all parsing of logs, controlling bouncers and communicating with CAPI
-Bouncer | IPS part of CrowdSec. Mitigates risks by ‘blocking’ malicious traffic
+Security Engine | Does all parsing of logs, controlling bouncers and communicating with CAPI
+Remediation Component | IPS part of CrowdSec. Mitigates risks by ‘blocking’ malicious traffic
 Parser | Parses logs. Written in YAML and GROK
 Scenario |Describes the attack we want to react upon
 Collection | Collection of parsers and/or scenarios for one system or use case

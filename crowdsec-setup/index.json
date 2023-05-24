@@ -26,7 +26,7 @@
   "details": {
     "steps": [
       {
-        "title": "Install Agent And Bouncers",
+        "title": "Install Security Engine And Remediation Component",
         "text": "step1_1.md"
       },
       {
