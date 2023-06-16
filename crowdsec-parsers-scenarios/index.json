@@ -1,137 +1,141 @@
 {
-    "backend": {
-      "imageid": "ubuntu"
-    },
-    "details": {
-      "steps": [
-        {
-          "title": "Understand parsing stages",
-          "text": "step1.md"
-        },
-        {
-          "title": "Parser yaml syntax",
-          "text": "step2/1.md"
-        },
-        {
-          "title": "Parser syntax: NAME",
-          "text": "step2/2.md"
-        },
-        {
-          "title": "Parser syntax: DEBUG",
-          "text": "step2/3.md"
-        },
-        {
-          "title": "Parser syntax: FILTER",
-          "text": "step2/4.md"
-        },
-        {
-          "title": "Parser syntax: ONSUCCESS",
-          "text": "step2/5.md"
-        },
-        {
-          "title": "Parser syntax: DESCRIPTION",
-          "text": "step2/6.md"
-        },
-        {
-          "title": "Parser syntax: NODES",
-          "text": "step2/7.md"
-        },
-        {
-          "title": "Parser syntax: NODE",
-          "text": "step2/8.md"
-        },
-        {
-          "title": "Parser syntax: STATICS",
-          "text": "step2/9.md"
-        },
-        {
-          "title": "Parser syntax summary",
-          "text": "step2/10.md"
-        },
-        {
-          "title": "Lets make some scenarios!",
-          "text": "step3/1.md"
-        },
-        {
-          "title": "Scenario syntax: type",
-          "text": "step3/2.md"
-        },
-        {
-          "title": "Scenario syntax: name",
-          "text": "step3/3.md"
-        },
-        {
-          "title": "Scenario syntax: description",
-          "text": "step3/4.md"
-        },
-        {
-          "title": "Scenario syntax: filter",
-          "text": "step3/5.md"
-        },
-        {
-          "title": "Scenario syntax: leakspeed",
-          "text": "step3/6.md"
-        },
-        {
-          "title": "Scenario syntax: capacity",
-          "text": "step3/7.md"
-        },
-        {
-          "title": "Scenario syntax: blackhole",
-          "text": "step3/8.md"
-        },
-        {
-          "title": "Scenario syntax: groupby",
-          "text": "step3/9.md"
-        },
-        {
-          "title": "Scenario syntax: labels",
-          "text": "step3/10.md"
-        },
-        {
-          "title": "Test your first scenario!",
-          "text": "step3/11.md"
-        },
-        {
-          "title": "Slower bruteforce bucket",
-          "text": "step4/1.md"
-        },
-        {
-          "title": "Scenario trigger bucket",
-          "text": "step4/2.md"
-        },
-        {
-          "title": "Scenario leaky crawler bucket",
-          "text": "step4/3.md"
-        },
-	{
-	  "title": "Testing our scenarios",
-	  "text": "step5/1.md"
-	},
-	{
-	  "title": "Testing our scenarios",
-          "courseData": "reset.sh",
-	  "text": "step5/2.md"
-	},
-	{
-	  "title": "Testing our scenarios",
-          "courseData": "reset.sh",
-	  "text": "step5/3.md"
-	},
-	{
-	  "title": "Testing our scenarios",
-          "courseData": "reset.sh",
-	  "text": "step5/4.md"
-	}
-      ],
-      "intro": {
-        "courseData": "env-init.sh",
-        "text": "intro.md"
+  "backend": {
+    "imageid": "ubuntu"
+  },
+  "details": {
+    "steps": [
+      {
+        "title": "Understand parsing stages",
+        "text": "step1.md"
       },
-      "finish": {
-        "text": "finish.md"
+      {
+        "title": "Parser yaml syntax",
+        "text": "step2/1.md"
+      },
+      {
+        "title": "Parser syntax: NAME",
+        "text": "step2/2.md"
+      },
+      {
+        "title": "Parser syntax: DEBUG",
+        "text": "step2/3.md"
+      },
+      {
+        "title": "Parser syntax: FILTER",
+        "text": "step2/4.md"
+      },
+      {
+        "title": "Parser syntax: ONSUCCESS",
+        "text": "step2/5.md"
+      },
+      {
+        "title": "Parser syntax: DESCRIPTION",
+        "text": "step2/6.md"
+      },
+      {
+        "title": "Parser syntax: NODES",
+        "text": "step2/7.md"
+      },
+      {
+        "title": "Parser syntax: NODE",
+        "text": "step2/8.md"
+      },
+      {
+        "title": "Parser syntax: STATICS",
+        "text": "step2/9.md"
+      },
+      {
+        "title": "Parser syntax summary",
+        "text": "step2/10.md"
+      },
+      {
+        "title": "Lets make some scenarios!",
+        "text": "step3/1.md"
+      },
+      {
+        "title": "Scenario syntax: type",
+        "text": "step3/2.md"
+      },
+      {
+        "title": "Scenario syntax: name",
+        "text": "step3/3.md"
+      },
+      {
+        "title": "Scenario syntax: description",
+        "text": "step3/4.md"
+      },
+      {
+        "title": "Scenario syntax: filter",
+        "text": "step3/5.md"
+      },
+      {
+        "title": "Scenario syntax: leakspeed",
+        "text": "step3/6.md"
+      },
+      {
+        "title": "Scenario syntax: capacity",
+        "text": "step3/7.md"
+      },
+      {
+        "title": "Scenario syntax: blackhole",
+        "text": "step3/8.md"
+      },
+      {
+        "title": "Scenario syntax: groupby",
+        "text": "step3/9.md"
+      },
+      {
+        "title": "Scenario syntax: labels",
+        "text": "step3/10.md"
+      },
+      {
+        "title": "Test your first scenario!",
+        "text": "step3/11.md"
+      },
+      {
+        "title": "Slower bruteforce bucket",
+        "text": "step4/1.md"
+      },
+      {
+        "title": "Scenario trigger bucket",
+        "text": "step4/2.md"
+      },
+      {
+        "title": "Scenario empty credentials bucket",
+        "text": "step4/3.md"
+      },
+      {
+        "title": "Testing our scenarios",
+        "text": "step5/1.md"
+      },
+      {
+        "title": "Testing our scenarios",
+        "courseData": "reset.sh",
+        "text": "step5/2.md"
+      },
+      {
+        "title": "Testing our scenarios",
+        "courseData": "reset.sh",
+        "text": "step5/3.md"
+      },
+      {
+        "title": "Testing our scenarios",
+        "courseData": "reset.sh",
+        "text": "step5/4.md"
+      },
+      {
+        "title": "Workshop Completion",
+        "text": "step6/1.md"
       }
+    ],
+    "intro": {
+      "courseData": "env-init.sh",
+      "text": "intro.md"
     },
-    "title": "Crowdsec Parsers and Scenarios for beginners",
-    "description": "Learn how to develop a parser and scenario"
-  }
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "title": "Crowdsec Parsers and Scenarios for beginners",
+  "description": "Learn how to develop a parser and scenario"
+}
