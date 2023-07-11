@@ -17,6 +17,6 @@
       "text": "finish.md"
     }
   },
-  "title": "CrowdSec Threat Hunting Workshop",
-  "description": "Learn how to hunt threats with CrowdSec"
+  "title": "CrowdSec Breach Analysis",
+  "description": "Learn how to analyze a breach with CrowdSec"
 }
