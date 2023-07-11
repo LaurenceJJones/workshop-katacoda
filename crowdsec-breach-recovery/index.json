@@ -1,0 +1,22 @@
+{
+  "backend": {
+    "imageid": "ubuntu-4GB"
+  },
+  "details": {
+    "steps": [
+      {
+        "title": "Introduction to Kibana and Elastic",
+        "text": "elk/step1.md"
+      }
+    ],
+    "intro": {
+      "courseData": "env-init.sh",
+      "text": "intro.md"
+    },
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "title": "CrowdSec Threat Hunting Workshop",
+  "description": "Learn how to hunt threats with CrowdSec"
+}
