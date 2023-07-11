@@ -13,5 +13,5 @@ We will be using a pre-configured ELK stack that has been setup for us.
 The ELK stack has been setup for us and is available at the following [URL]({{TRAFFIC_HOST1_5601}})
 
 The ELK stack has been configured with the following credentials:
-user: elastic
-password: changeme
+- user: elastic
+- password: crowdsec

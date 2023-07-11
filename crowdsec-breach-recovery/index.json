@@ -5,7 +5,7 @@
   "details": {
     "steps": [
       {
-        "title": "Introduction to Kibana and Elastic",
+        "title": "ELK",
         "text": "elk/step1.md"
       }
     ],
@@ -17,6 +17,6 @@
       "text": "finish.md"
     }
   },
-  "title": "CrowdSec Breach Analysis",
+  "title": "CrowdSec Analyze A Breach",
   "description": "Learn how to analyze a breach with CrowdSec"
 }
