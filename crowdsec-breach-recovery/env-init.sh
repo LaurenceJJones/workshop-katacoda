@@ -13,12 +13,13 @@ sudo dpkg -i filebeat-8.8.2-amd64.deb
 
 cat <<-EOT > "/etc/filebeat/filebeat.yml"
 output.elasticsearch:
-  hosts: ["https://127.0.0.1:9200"]
+  hosts: ["http://127.0.0.1:9200"]
   username: "filebeat_internal"
   password: "crowdsec" 
-  ssl:
-    enabled: true
-    ca_trusted_fingerprint: "b9a10bbe64ee9826abeda6546fc988c8bf798b41957c33d05db736716513dc9c" 
+setup.kibana:
+    host: "127.0.0.1:5601" 
+    username: "elastic"  
+    password: "crowdsec"
 	EOT
 
 filebeat modules enable nginx
