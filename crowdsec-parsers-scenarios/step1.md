@@ -14,4 +14,4 @@ Every event starts in the first stage, and moves to the next stage once it has b
 - `s01-parse`{{}}: parsed by crowdsecurity/sshd-logs (will move the event to the next stage)
 - `s02-enrich`{{}}: parsed by crowdsecurity/geoip-enrich and crowdsecurity/dateparse-enrich
 
-Please click check to continue to the next step, if you get a validation error, CrowdSec is not yet installed wait a few seconds and try again.
+**Please click check to continue to the next step, if you get a validation error, CrowdSec is not yet installed wait a few seconds and try again.**
