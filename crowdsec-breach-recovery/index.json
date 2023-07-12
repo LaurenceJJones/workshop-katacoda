@@ -17,6 +17,11 @@
       "text": "finish.md"
     }
   },
+  "assets": {
+    "host01": [
+        {"file": "pwn.log", "target": "/var/log/"}
+    ]
+  },
   "title": "CrowdSec Analyze A Breach",
   "description": "Learn how to analyze a breach with CrowdSec"
 }
