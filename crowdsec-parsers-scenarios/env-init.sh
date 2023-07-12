@@ -1,3 +1,4 @@
+#!/bin/bash
 echo 'ffffffffffffffffffffffffffffffff' > /etc/machine-id
 curl -s https://packagecloud.io/install/repositories/crowdsec/crowdsec/script.deb.sh | bash
 apt install crowdsec -y

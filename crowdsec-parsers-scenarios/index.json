@@ -6,7 +6,8 @@
     "steps": [
       {
         "title": "Understand parsing stages",
-        "text": "step1.md"
+        "text": "step1.md",
+        "verify": "step1-verify.sh"
       },
       {
         "title": "Parser yaml syntax",

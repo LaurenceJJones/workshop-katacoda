@@ -7,3 +7,4 @@ sed -i "s/''/crowdsec/g" .env
 sed -i "s/'changeme'/crowdsec/g" .env
 docker-compose up setup
 docker-compose up -d
+
