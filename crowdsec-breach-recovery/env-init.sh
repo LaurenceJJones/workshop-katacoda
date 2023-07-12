@@ -32,3 +32,6 @@ cat <<-EOT > "/etc/filebeat/modules.d/nginx.yml"
     enabled: true
     var.paths: ["/var/log/nginx/error.log*"]
 	EOT
+
+filebeat setup -e
+systemctl enable --now filebeat
