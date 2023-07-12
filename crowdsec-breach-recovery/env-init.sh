@@ -24,6 +24,8 @@ setup.kibana:
 
 filebeat modules enable nginx
 
+sleep 20
+
 cat <<-EOT > "/etc/filebeat/modules.d/nginx.yml"
 - module: nginx
   access:
