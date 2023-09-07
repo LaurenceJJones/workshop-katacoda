@@ -65,14 +65,14 @@ func main() {
 			p := c.PostForm("password")
 
 			if EmptyUserPass(u, p) {
-				formatLog(c, "provided empty username or password")
 				c.HTML(http.StatusBadRequest, "index.html", gin.H{"content": "Parameters can't be empty"})
+				formatLog(c, "provided empty username or password")
 				return
 			}
 
 			if !CheckUserPass(u, p) {
-				formatLog(c, fmt.Sprintf("invalid login request USER=(%s)", u))
 				c.HTML(http.StatusUnauthorized, "index.html", gin.H{"content": "Incorrect username or password"})
+				formatLog(c, fmt.Sprintf("invalid login request USER=(%s)", u))
 				return
 			}
 
@@ -91,8 +91,8 @@ func main() {
 			session := sessions.Default(c)
 			user := session.Get("user")
 			if user == nil {
-				formatLog(c, fmt.Sprintf("unauthorized request URI=(%s)", c.Request.RequestURI))
 				c.Redirect(http.StatusMovedPermanently, "/")
+				formatLog(c, fmt.Sprintf("unauthorized request URI=(%s)", c.Request.RequestURI))
 				c.Abort()
 				return
 			}

@@ -32,7 +32,6 @@ filebeat.config:
 
 filebeat modules enable nginx
 
-sleep 20
 
 cat <<-EOT > "/etc/filebeat/modules.d/nginx.yml"
 - module: nginx
@@ -44,5 +43,9 @@ cat <<-EOT > "/etc/filebeat/modules.d/nginx.yml"
     var.paths: ["/var/log/nginx/error.log*"]
 	EOT
 
+sleep 60
 filebeat setup -e
 systemctl enable --now filebeat
+git clone https://github.com/punk-security/pwnspoof
+cd pwnspoof || exit 1
+python pwnspoof.py wordpress --log-start-date 20230801 --log-end-date 20230830 --spoofed-attacks 5 --attack-type command_injection --server-fqdn marysfarm.local --out /var/log/pwn.log --server-type NGINX
