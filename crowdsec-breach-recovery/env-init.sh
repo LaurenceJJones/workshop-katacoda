@@ -60,6 +60,6 @@ python pwnspoof.py wordpress --session-count 7000 --log-start-date "$(date -d '-
 NUM=0
 for i in $(grep "?cmd" /var/log/pwn.log | cut -d ' ' -f1 | sort -u); do
   NUM=$((NUM-1))
-  compdate=$(date -d "$NUM days" "+%b  %d %H:%M:%S")
-  echo "$compdate bullseye sshd[557]: Accepted publickey for root from $i port 365$NUM ssh2" >> /var/log/auth.log
+  compdate=$(date -d "$NUM days" "+%b  %-d %H:%M:%S")
+  echo "$compdate bullseye sshd[557]: Accepted publickey for root from $i port 36556 ssh2" >> /var/log/auth.log
 done
