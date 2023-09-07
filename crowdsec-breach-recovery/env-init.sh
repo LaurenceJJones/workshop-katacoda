@@ -48,4 +48,4 @@ filebeat setup -e
 systemctl enable --now filebeat
 git clone https://github.com/punk-security/pwnspoof
 cd pwnspoof || exit 1
-python pwnspoof.py wordpress --session-count 7000 --log-start-date "$(date -d '-30 days' '+%Y%m%d')" --log-end-date "$(date '+%Y%m%d')"  --spoofed-attacks 1 --attack-type command_injection --server-fqdn marysfarm.local --out /var/log/pwn.log --server-type NGINX
+python pwnspoof.py wordpress --session-count 7000 --log-start-date "$(date -d '-30 days' +%Y%m%d)" --log-end-date "$(date +%Y%m%d)"  --spoofed-attacks 3 --attack-type command_injection --server-fqdn marysfarm.local --out /var/log/pwn.log --server-type NGINX
