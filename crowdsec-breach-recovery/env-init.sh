@@ -129,7 +129,7 @@ cscli hub update
 
 cscli collections install crowdsecurity/nginx crowdsecurity/iptables
 
-systemctl restart crowdsec
+cscli scenarios delete crowdsecurity/http-crawl-non_statics
 
 cat <<-EOT > "/etc/crowdsec/scenarios/2-little-ducks.yaml"
 type: leaky
@@ -138,7 +138,7 @@ description: "Common ssh ports being scanned"
 filter: |
   evt.Meta.log_type == 'iptables_drop' &&
   evt.Meta.service == 'tcp' &&
-  evt.Parsed.dst_port in ['22', '2022', '2222', '2202', '2002', '2000', '2220', '202' ,'220']"
+  evt.Parsed.dst_port in ['22', '2022', '2222', '2202', '2002', '2000', '2220', '202' ,'220']
 groupby: evt.Meta.source_ip
 capacity: 3
 leakspeed: 10s
@@ -156,7 +156,7 @@ description: "PHP cmd injection"
 filter: |
   evt.Meta.log_type in ['http_access-log', 'http_error-log'] &&
   evt.Parsed.http_args matches 'cmd(=|%3D)' &&
-  evt.Parsed.http_status == '200' &&
+  evt.Meta.http_status == '200' &&
   evt.Parsed.request matches '.php$'
 blackhole: 1m
 labels:
@@ -170,5 +170,7 @@ db_config:
   use_wal: true
 crowdsec_service:
   parser_routines: 2
-  buckets_routines: 2
+  buckets_routines: 3
 	EOT
+
+systemctl restart crowdsec
