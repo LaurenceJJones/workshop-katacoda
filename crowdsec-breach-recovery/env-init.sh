@@ -64,7 +64,7 @@ cd - || exit 1
 ## Generate fake logs :D
 git clone https://github.com/punk-security/pwnspoof
 cd pwnspoof || exit 1
-python pwnspoof.py wordpress --session-count 7000 --log-start-date "$(date -d '-30 days' +%Y%m%d)" --log-end-date "$(date +%Y%m%d)"  --spoofed-attacks 0 --attack-type command_injection --server-fqdn marysfarm.local --out /var/log/pwn.log --additional-attacker-ips 14.32.0.74,221.210.252.36,204.157.240.55,200.59.184.155,103.231.177.154 --server-type NGINX
+python pwnspoof.py wordpress --session-count 7000 --log-start-date "$(date -d '-15 days' +%Y%m%d)" --log-end-date "$(date -d '5 days' +%Y%m%d)"  --spoofed-attacks 0 --attack-type command_injection --server-fqdn marysfarm.local --out /var/log/pwn.log --additional-attacker-ips 14.32.0.74,221.210.252.36,204.157.240.55,200.59.184.155,103.231.177.154 --server-type NGINX
 ## Use pwnspoof for nginx logs
 
 min=34000
@@ -87,10 +87,10 @@ for i in $(grep "?cmd" /var/log/pwn.log | cut -d ' ' -f1 | sort -u); do
     ## Inject iptables IOCS
     if [ $port -eq 22 ]; then
       ## Inject accepted
-      echo "$compdate bullseye kernel: [  659.418604] IN=eth0 OUT= MAC=52:54:00:83:ad:a5:52:54:00:99:c9:e0:08:00 SRC=$i DST=1.2.3.4 LEN=60 TOS=0x00 PREC=0x00 TTL=64 ID=54729 DF PROTO=TCP SPT=41894 DPT=$port WINDOW=64240 RES=0x00 SYN URGP=0 ACCEPT" >> /var/log/iptables.log
+      echo "$compdate bullseye kernel: [  659.418604] ACCEPT IN=eth0 OUT= MAC=52:54:00:83:ad:a5:52:54:00:99:c9:e0:08:00 SRC=$i DST=1.2.3.4 LEN=60 TOS=0x00 PREC=0x00 TTL=64 ID=54729 DF PROTO=TCP SPT=$PORT DPT=$port WINDOW=64240 RES=0x00 SYN URGP=0" >> /var/log/iptables.log
     else
       ## Inject dropped
-      echo "$compdate bullseye kernel: [  659.418604] IN=eth0 OUT= MAC=52:54:00:83:ad:a5:52:54:00:99:c9:e0:08:00 SRC=$i DST=1.2.3.4 LEN=60 TOS=0x00 PREC=0x00 TTL=64 ID=54729 DF PROTO=TCP SPT=41894 DPT=$port WINDOW=64240 RES=0x00 SYN URGP=0" >> /var/log/iptables.log
+      echo "$compdate bullseye kernel: [  659.418604] DROP IN=eth0 OUT= MAC=52:54:00:83:ad:a5:52:54:00:99:c9:e0:08:00 SRC=$i DST=1.2.3.4 LEN=60 TOS=0x00 PREC=0x00 TTL=64 ID=54729 DF PROTO=TCP SPT=$PORT DPT=$port WINDOW=64240 RES=0x00 SYN URGP=0" >> /var/log/iptables.log
     fi
   done
 done
@@ -103,5 +103,7 @@ for i in {1..100}; do
   NUM=$((NUM-i))
   PORT=$((min + RANDOM % max))
   compdate=$(date -d "$NUM days" "+%b  %-d %H:%M:%S")
-  echo "$compdate bullseye sshd[557]: Accepted password for root from 1.2.3.4 port $PORT ssh2" >> /var/log/auth.log
+  for ip in 1.2.3.4 1.2.4.5 1.1.1.1 1.0.0.1; do
+    echo "$compdate bullseye sshd[557]: Accepted password for root from $ip port $PORT ssh2" >> /var/log/auth.log
+  done
 done
