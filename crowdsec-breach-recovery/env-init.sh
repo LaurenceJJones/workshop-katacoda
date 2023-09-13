@@ -95,15 +95,24 @@ for i in $(grep "?cmd" /var/log/pwn.log | cut -d ' ' -f1 | sort -u); do
   done
 done
 
-
-## Inject "legit" logins for a constant IP
-echo "Injecting legit ssh logins"
 NUM=0
-for i in {1..100}; do
+## Range over 15 days
+for i in {0..16}; do
   NUM=$((NUM-i))
-  PORT=$((min + RANDOM % max))
-  compdate=$(date -d "$NUM days" "+%b  %-d %H:%M:%S")
+  MIN_NUM=$((NUM*86400))
+  echo "Injecting iptables noise"
+  for ip in $(cat /var/log/pwn.log |cut -d ' ' -f1 | sort -u); do
+      PORT=$((min + RANDOM % max))
+      MIN_NUM=$((MIN_NUM-2))
+      compdate=$(date -d "$MIN_NUM seconds" "+%b  %-d %H:%M:%S")
+      echo "$compdate bullseye kernel: [  659.418604] ACCEPT IN=eth0 OUT= MAC=52:54:00:83:ad:a5:52:54:00:99:c9:e0:08:00 SRC=$ip DST=1.2.3.4 LEN=60 TOS=0x00 PREC=0x00 TTL=64 ID=54729 DF PROTO=TCP SPT=$PORT DPT=443 WINDOW=64240 RES=0x00 SYN URGP=0" >> /var/log/iptables.log
+  done
+  MIN_NUM=$((NUM*86400))
+  echo "Injecting ssh noise"
   for ip in 1.2.3.4 1.2.4.5 1.1.1.1 1.0.0.1; do
+    PORT=$((min + RANDOM % max))
+    MIN_NUM=$((MIN_NUM-3600))
+    compdate=$(date -d "$NUM seconds" "+%b  %-d %H:%M:%S")
     echo "$compdate bullseye sshd[557]: Accepted password for root from $ip port $PORT ssh2" >> /var/log/auth.log
   done
 done
