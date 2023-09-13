@@ -64,7 +64,7 @@ cd - || exit 1
 ## Generate fake logs :D
 git clone https://github.com/punk-security/pwnspoof
 cd pwnspoof || exit 1
-python pwnspoof.py wordpress --session-count 7000 --log-start-date "$(date -d '-15 days' +%Y%m%d)" --spoofed-attacks 0 --attack-type command_injection --server-fqdn marysfarm.local --out /var/log/pwn.log --additional-attacker-ips 14.32.0.74,221.210.252.36,204.157.240.55,200.59.184.155,103.231.177.154 --server-type NGINX
+python pwnspoof.py wordpress --log-start-date "$(date -d '-15 days' +%Y%m%d)" --spoofed-attacks 0 --attack-type command_injection --server-fqdn marysfarm.local --out /var/log/pwn.log --additional-attacker-ips 14.32.0.74,221.210.252.36,204.157.240.55,200.59.184.155,103.231.177.154 --server-type NGINX
 ## Use pwnspoof for nginx logs
 
 min=34000
@@ -116,3 +116,51 @@ for i in {0..16}; do
     echo "$compdate bullseye sshd[557]: Accepted password for root from $ip port $PORT ssh2" >> /var/log/auth.log
   done
 done
+
+
+echo "ELK Stack setup complete!"
+
+
+curl -s https://packagecloud.io/install/repositories/crowdsec/crowdsec/script.deb.sh | sudo bash
+
+sudo apt-get install crowdsec -y
+
+cscli hub update
+
+cscli collections install crowdsecurity/nginx crowdsecurity/iptables
+
+systemctl restart crowdsec
+
+cat <<-EOT > "/etc/crowdsec/scenarios/2-little-ducks.yaml"
+type: leaky
+name: blueteam/2-little-ducks
+description: "Common ssh ports being scanned"
+filter: |
+  evt.Meta.log_type == 'iptables_drop' &&
+  evt.Meta.service == 'tcp' &&
+  evt.Parsed.dst_port in ['22', '2022', '2222', '2202', '2002', '2000', '2220', '202' ,'220']"
+groupby: evt.Meta.source_ip
+capacity: 3
+leakspeed: 10s
+blackhole: 1m
+labels:
+  service: tcp
+  type: scan
+  remediation: true
+	EOT
+
+cat <<-EOT > "/etc/crowdsec/scenarios/php-cmd.yaml"
+type: trigger
+name: blueteam/php-cmd
+description: "PHP cmd injection"
+filter: |
+  evt.Meta.log_type in ['http_access-log', 'http_error-log'] &&
+  evt.Parsed.http_args matches 'cmd(=|%3D)' &&
+  evt.Parsed.http_status == '200' &&
+  evt.Parsed.request matches '.php$'
+blackhole: 1m
+labels:
+  service: tcp
+  type: scan
+  remediation: true
+	EOT
