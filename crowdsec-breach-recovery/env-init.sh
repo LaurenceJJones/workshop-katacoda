@@ -164,3 +164,11 @@ labels:
   type: scan
   remediation: true
 	EOT
+
+cat <<-EOT > "/etc/crowdsec/config.yaml.local"
+db_config:
+  use_wal: true
+crowdsec_service:
+  parser_routines: 2
+  buckets_routines: 2
+	EOT
