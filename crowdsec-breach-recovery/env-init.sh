@@ -64,7 +64,7 @@ cd - || exit 1
 ## Generate fake logs :D
 git clone https://github.com/punk-security/pwnspoof
 cd pwnspoof || exit 1
-python pwnspoof.py wordpress --session-count 7000 --log-start-date "$(date -d '-15 days' +%Y%m%d)" --log-end-date "$(date -d '5 days' +%Y%m%d)"  --spoofed-attacks 0 --attack-type command_injection --server-fqdn marysfarm.local --out /var/log/pwn.log --additional-attacker-ips 14.32.0.74,221.210.252.36,204.157.240.55,200.59.184.155,103.231.177.154 --server-type NGINX
+python pwnspoof.py wordpress --session-count 7000 --log-start-date "$(date -d '-15 days' +%Y%m%d)" --spoofed-attacks 0 --attack-type command_injection --server-fqdn marysfarm.local --out /var/log/pwn.log --additional-attacker-ips 14.32.0.74,221.210.252.36,204.157.240.55,200.59.184.155,103.231.177.154 --server-type NGINX
 ## Use pwnspoof for nginx logs
 
 min=34000
