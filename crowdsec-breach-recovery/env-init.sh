@@ -71,16 +71,18 @@ min=34000
 max=36000
 NUM=0
 ## Grep malicious IP's out of the pwn.log and inject them into the other IOCS
+echo "Injecting malicious IP's ssh and iptables"
 for i in $(grep "?cmd" /var/log/pwn.log | cut -d ' ' -f1 | sort -u); do
   NUM=$((NUM-5))
   PORT=$((min + RANDOM % max))
   compdate=$(date -d "$NUM days" "+%b  %-d %H:%M:%S")
   ## Inject ssh IOCS
   echo "$compdate bullseye sshd[557]: Accepted password for root from $i port $PORT ssh2" >> /var/log/auth.log
-  MIN_NUM=0
+  ## Set min num to base days and subtract 10 seconds for each port
+  MIN_NUM=$((NUM*86400))
   ## Loop over common ssh ports
   for port in 22 2022 2222 2202 2002 2000 2220 202 220; do
-    MIN_NUM=$((NUM-10))
+    MIN_NUM=$((MIN_NUM-10))
     compdate=$(date -d "$MIN_NUM seconds" "+%b  %-d %H:%M:%S")
     ## Inject iptables IOCS
     if [ $port -eq 22 ]; then
@@ -95,6 +97,7 @@ done
 
 
 ## Inject "legit" logins for a constant IP
+echo "Injecting legit ssh logins"
 NUM=0
 for i in {1..100}; do
   NUM=$((NUM-i))
