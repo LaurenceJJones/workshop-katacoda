@@ -98,7 +98,7 @@ done
 NUM=0
 ## Range over 15 days
 for i in {0..16}; do
-  NUM=$((NUM-i))
+  NUM=$((NUM-1))
   MIN_NUM=$((NUM*86400))
   echo "Injecting iptables noise"
   for ip in $(cat /var/log/pwn.log |cut -d ' ' -f1 | sort -u); do
@@ -112,7 +112,7 @@ for i in {0..16}; do
   for ip in 1.2.3.4 1.2.4.5 1.1.1.1 1.0.0.1; do
     PORT=$((min + RANDOM % max))
     MIN_NUM=$((MIN_NUM-3600))
-    compdate=$(date -d "$NUM seconds" "+%b  %-d %H:%M:%S")
+    compdate=$(date -d "$MIN_NUM seconds" "+%b  %-d %H:%M:%S")
     echo "$compdate bullseye sshd[557]: Accepted password for root from $ip port $PORT ssh2" >> /var/log/auth.log
   done
 done
