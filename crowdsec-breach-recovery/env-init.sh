@@ -78,11 +78,11 @@ for i in $(grep "?cmd" /var/log/pwn.log | cut -d ' ' -f1 | sort -u); do
   compdate=$(date -d "$NUM days" "+%b  %-d %H:%M:%S")
   ## Inject ssh IOCS
   echo "$compdate bullseye sshd[557]: Accepted password for root from $i port $PORT ssh2" >> /var/log/auth.log
-  ## Set min num to base days and subtract 10 seconds for each port
+  ## Set min num to base days and subtract 1 second for each port
   MIN_NUM=$((NUM*86400))
   ## Loop over common ssh ports
   for port in 22 2022 2222 2202 2002 2000 2220 202 220; do
-    MIN_NUM=$((MIN_NUM-10))
+    MIN_NUM=$((MIN_NUM-1))
     compdate=$(date -d "$MIN_NUM seconds" "+%b  %-d %H:%M:%S")
     ## Inject iptables IOCS
     if [ $port -eq 22 ]; then
