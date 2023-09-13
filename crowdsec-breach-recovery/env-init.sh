@@ -55,11 +55,22 @@ systemctl enable --now filebeat
 cd - || exit 1
 git clone https://github.com/punk-security/pwnspoof
 cd pwnspoof || exit 1
-python pwnspoof.py wordpress --session-count 7000 --log-start-date "$(date -d '-30 days' +%Y%m%d)" --log-end-date "$(date +%Y%m%d)"  --spoofed-attacks 3 --attack-type command_injection --server-fqdn marysfarm.local --out /var/log/pwn.log --server-type NGINX
+python pwnspoof.py wordpress --session-count 7000 --log-start-date "$(date -d '-30 days' +%Y%m%d)" --log-end-date "$(date +%Y%m%d)"  --spoofed-attacks 0 --attack-type command_injection --server-fqdn marysfarm.local --out /var/log/pwn.log --additional-attacker-ips 14.32.0.74,221.210.252.36,204.157.240.55,200.59.184.155,103.231.177.154 --server-type NGINX
 
+min=34000
+max=36000
 NUM=0
 for i in $(grep "?cmd" /var/log/pwn.log | cut -d ' ' -f1 | sort -u); do
-  NUM=$((NUM-1))
+  NUM=$((NUM-5))
+  PORT=$((min + RANDOM % max))
   compdate=$(date -d "$NUM days" "+%b  %-d %H:%M:%S")
-  echo "$compdate bullseye sshd[557]: Accepted publickey for root from $i port 36556 ssh2" >> /var/log/auth.log
+  echo "$compdate bullseye sshd[557]: Accepted password for root from $i port $PORT ssh2" >> /var/log/auth.log
+done
+
+NUM=0
+for i in {1..1000}; do
+  NUM=$((NUM-i))
+  PORT=$((min + RANDOM % max))
+  compdate=$(date -d "$NUM days" "+%b  %-d %H:%M:%S")
+  echo "$compdate bullseye sshd[557]: Accepted password for webdev from 1.2.3.4 port $PORT ssh2" >> /var/log/auth.log
 done
