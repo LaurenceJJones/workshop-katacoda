@@ -73,11 +73,11 @@ NUM=0
 ## Grep malicious IP's out of the pwn.log and inject them into the other IOCS
 echo "Injecting malicious IP's ssh and iptables"
 for i in $(grep "?cmd" /var/log/pwn.log | cut -d ' ' -f1 | sort -u); do
-  NUM=$((NUM-5))
+  NUM=$((NUM-3))
   PORT=$((min + RANDOM % max))
   compdate=$(date -d "$NUM days" "+%b  %-d %H:%M:%S")
   ## Inject ssh IOCS
-  echo "$compdate bullseye sshd[557]: Accepted password for root from $i port $PORT ssh2" >> /var/log/auth.log
+  echo "$compdate bullseye sshd[557]: Accepted publickey for root from $i port $PORT ssh2" >> /var/log/auth.log
   ## Set min num to base days and subtract 1 second for each port
   MIN_NUM=$((NUM*86400))
   ## Loop over common ssh ports
