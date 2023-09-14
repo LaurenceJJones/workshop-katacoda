@@ -11,6 +11,14 @@
       {
         "title": "Where to start?!?",
         "text": "elk/step2.md"
+      },
+      {
+        "tile": "Manual investigation",
+        "text": "elk/step3.md"
+      },
+      {
+        "title": "Automate the initial investigation",
+        "text": "elk/step4.md"
       }
     ],
     "intro": {

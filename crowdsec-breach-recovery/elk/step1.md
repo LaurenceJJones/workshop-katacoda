@@ -5,16 +5,15 @@ You are a newly employed SOC analyst at Blueteam INC. You have been tasked with 
 - The initial compromised location
     - Include metadata about the attack
 - The attacker IP address
-    - Use OSINT to determine the attacker
+    - Use OSINT to determine the attacker (CN, ASN, etc)
 - Did the attacker gain access via ssh?
     - If so, how?
+    - Do you believe they could still have access?
 ## Introduction to the breach
 
-Marys Farm has reached out to us after they have been contacted by a hacker that claims to have breached their network and stolen confidential data. They have provided the company with a sample of the data they have stolen to show it is legitimate.
+Marys Farm has reached out to us after they have been contacted by a hacker that claims to have breached their network and stolen confidential data. They have provided the company with a sample of the data they have stolen to show it is legitimate. Marys Farm have informed us the sample data shown **MUST** have been taken from their wordpress eCommerce site. They have informed us that the hacker has threatened to release the data to the public if they do not pay a ransom of 1 Bitcoin.
 
-Marys Farm does not know how the hackers got in, but they have provided us logs from their web server, firewall and SSH. We will need to analyze these logs to determine how the hackers got in and what they did.
-
-We will be using the ELK stack to analyze the logs. The ELK stack is a collection of open source tools that are commonly used for manual log analysis. The ELK stack consists of Elasticsearch, Logstash, and Kibana. Elasticsearch is a search engine that is used to store and search logs. Logstash is a tool that is used to collect and parse logs. Kibana is a web interface that is used to visualize logs.
+Marys Farm have informed us they will not pay the ransom and have asked us to investigate the breach. Our team have exported their web server, firewall and SSH.
 
 We will be using a pre-configured ELK stack that has been setup for us.
 

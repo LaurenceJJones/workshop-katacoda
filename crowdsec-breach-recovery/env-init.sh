@@ -135,8 +135,6 @@ curl -s https://packagecloud.io/install/repositories/crowdsec/crowdsec/script.de
 
 sudo apt-get install crowdsec -y
 
-cscli hub update
-
 cscli collections install crowdsecurity/nginx crowdsecurity/iptables
 
 cscli scenarios delete crowdsecurity/http-crawl-non_statics
@@ -168,7 +166,6 @@ filter: |
   evt.Parsed.http_args matches 'cmd(=|%3D)' &&
   evt.Meta.http_status == '200' &&
   evt.Parsed.request matches '.php$'
-blackhole: 1m
 labels:
   service: tcp
   type: scan
