@@ -9,6 +9,8 @@ You are a newly employed SOC analyst at Blueteam INC. You have been tasked with 
 - Did the attacker gain access via ssh?
     - If so, how?
     - Do you believe they could still have access?
+
+You can copy the points above and use them as a guide for your report.
 ## Introduction to the breach
 
 Marys Farm has reached out to us after they have been contacted by a hacker that claims to have breached their network and stolen confidential data. They have provided the company with a sample of the data they have stolen to show it is legitimate. Marys Farm have informed us the sample data shown **MUST** have been taken from their wordpress eCommerce site. They have informed us that the hacker has threatened to release the data to the public if they do not pay a ransom of 1 Bitcoin.
