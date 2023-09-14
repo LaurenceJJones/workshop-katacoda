@@ -93,6 +93,16 @@ for i in $(grep "?cmd" /var/log/pwn.log | cut -d ' ' -f1 | sort -u); do
       echo "$compdate bullseye kernel: [  659.418604] DROP IN=eth0 OUT= MAC=52:54:00:83:ad:a5:52:54:00:99:c9:e0:08:00 SRC=$i DST=1.2.3.4 LEN=60 TOS=0x00 PREC=0x00 TTL=64 ID=54729 DF PROTO=TCP SPT=$PORT DPT=$port WINDOW=64240 RES=0x00 SYN URGP=0" >> /var/log/iptables.log
     fi
   done
+
+  MIN_NUM=$((NUM*86400))
+  for ii in 192.168.1.1 192.168.1.2 192.168.1.3; do
+    for port in 8080 8443; do
+      PORT=$((min + RANDOM % max))
+      MIN_NUM=$((MIN_NUM-1))
+      compdate=$(date -d "$MIN_NUM seconds" "+%b  %-d %H:%M:%S")
+      echo "$compdate bullseye kernel: [  659.418604] DROP IN=eth0 OUT= MAC=52:54:00:83:ad:a5:52:54:00:99:c9:e0:08:00 SRC=$ii DST=1.2.3.4 LEN=60 TOS=0x00 PREC=0x00 TTL=64 ID=54729 DF PROTO=TCP SPT=$PORT DPT=$port WINDOW=64240 RES=0x00 SYN URGP=0" >> /var/log/iptables.log
+    done
+  done
 done
 
 NUM=0
