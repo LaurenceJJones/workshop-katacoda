@@ -34,8 +34,7 @@ labels:
 Lets create the acquistion file using the below snippet:
 
 ```
-mkdir  -p /etc/crowdsec/acquis.d
-cat > /etc/crowdsec/acquis.d/appsec.yaml << EOF
+mkdir  -p /etc/crowdsec/acquis.d && cat > /etc/crowdsec/acquis.d/appsec.yaml << EOF
 source: appsec
 name: myappsec
 appsec_config: my/rules

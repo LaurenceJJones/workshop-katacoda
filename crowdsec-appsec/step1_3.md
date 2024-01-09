@@ -2,7 +2,7 @@
 
 Since we are creating the configuration from scratch we must create the directories that will hold the configuration files.
 
-If you use anyone of the AppSec collections from the [Hub](https://hub.crowdsec.net) then you will not need to create these directories as they will be created for you.
+If you use any of the official AppSec collections from the [Hub](https://hub.crowdsec.net) then you will not need to create these directories as they will be created for you upon installation.
 
 ### Creating the configuration directories
 
@@ -14,6 +14,6 @@ The rules directory is where we will store the rules that we want to use to prot
 
 #### Configs Directory
 
-The configs directory is where we will store the configuration files for the CrowdSec AppSec Component. Think of these file instruct the component how to behave and which rules to load as you may want to load different rules for different applications. This config file are what we defined in the acquisition file within the `appsec_config`{{}} field.
+The configs directory is where we will store the configuration files for the CrowdSec AppSec Component. These files instruct the component how to behave and which rules to load as you may want to load different rules for different applications.
 
-We will be creating a file called `my_rules.yaml`{{}} in the configs directory within the next step.
+We will be creating a file called `my_rules.yaml`{{}} in the `appsec-configs`{{}} directory within the next step.
