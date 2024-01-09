@@ -1,0 +1,56 @@
+{
+  "backend": {
+    "imageid": "kubernetes-kubeadm-2nodes"
+  },
+  "files": [
+    "App"
+  ],
+  "environment": {
+    "uilayout": "terminal",
+    "uidependencies": [
+      "/socket.io/socket.io.js",
+      "/javascripts/term.js",
+      "/javascripts/terminal-application.js"
+    ],
+    "terminals": [
+      {"name": "Attacker Host", "target": "host02"}
+    ],
+    "hideintro": false,
+    "hidefinish": false,
+    "showide": false
+  },
+  "details": {
+    "steps": [
+      {
+        "title": "Install Security Engine",
+        "text": "step1_1.md"
+      },
+      {
+        "title": "AppSec Acquisition",
+        "text": "step1_2.md"
+      },
+      {
+        "title": "AppSec Configuration",
+        "text": "step1_3.md"
+      },
+      {
+        "title": "Rules Configuration",
+        "text": "step1_4.md"
+      }
+    ],
+    "assets": {
+        "host01": [
+            {"file": ".bashrc", "target": "/root/"}
+        ]
+    },
+    "intro": {
+      "courseData": "env-init.sh",
+      "text": "intro.md"
+    },
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "title": "Crowdsec AppSec Workshop",
+  "description": "Learn how to setup CrowdSec Application Security Component and secure your webserver"
+}
