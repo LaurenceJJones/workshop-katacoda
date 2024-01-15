@@ -26,7 +26,7 @@ labels:
 
 See the highlighted line above, matches the `name`{{}} in the configuration file.
 
-* `default_remediation: ban|captcha`{{}}: This is the default remediation that will be used when a rule matches. In this case, we are going to provide the ban template which will block the request. It is important to note that this does not mean the IP address is banned, it means that the request is blocked.
+* `default_remediation: ban|captcha|log`{{}}: This is the default remediation that will be used when a inband rule matches. In this case, we are going to provide the ban template which will block the request. It is important to note that this does not mean the requesting IP address is banned, it means that the request is blocked.
 
 * `inband_rules: - my/rule`{{}}: This is list of rule names that we want to load. In this case, we are going to create one from scratch called `my/rule`{{}}.
 
@@ -45,10 +45,12 @@ There are [additional configuration options](https://docs.crowdsec.net/docs/next
 
 ## Inband vs Outofband Rules
 
-Both rules are loaded into the CrowdSec AppSec Component, however, they behave differently.
+Both rules are loaded into the CrowdSec AppSec Component if supplied, however, they behave differently.
 
-Inband rules are disruptive, this means that when a rule matches, the request will be blocked.
+Inband rules are disruptive, this means that when a rule matches, the remediation component will be informed to act on the remediation.
 
-Outofband rules are not disruptive, this means that when a rule matches the request will not be blocked. This is useful for rules that you want to create an alert for, but not block the request. Rules that take a long time to process should be outofband rules.
+Outofband rules are not disruptive, this means that when a rule matches the request will always be allowed**. This is useful for rules that you want to create an alert for, but not create a disruption.
 
 In the next section we will create a rule our first rule using standard seclang format and then we will create a rule again using the CrowdSec AppSec Rule Language.
+
+**Within the codebase Outofband rules can **never** become disruptive because by the time the outofband is evaluated, the remediation component has already been called.
