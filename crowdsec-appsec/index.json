@@ -30,12 +30,16 @@
         "text": "step1_2.md"
       },
       {
-        "title": "AppSec Configuration",
+        "title": "AppSec Directories",
         "text": "step1_3.md"
       },
       {
         "title": "Rules Configuration",
         "text": "step1_4.md"
+      },
+      {
+        "title": "Rule Configuration",
+        "text": "step1_5.md"
       }
     ],
     "assets": {

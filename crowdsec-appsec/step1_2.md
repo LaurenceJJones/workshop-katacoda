@@ -1,5 +1,4 @@
 Lets setup the CrowdSec AppSec Component step by step so we can understand how it works.
-# Step 1 Acquisition Configuration
 
 In this step, we will configure the acquisition for the AppSec component.
 
