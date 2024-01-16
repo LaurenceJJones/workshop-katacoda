@@ -1,13 +1,13 @@
 Whilst we have the preview repositories installed we can also install the preview version of the Nginx lua remediation component. This will allow us to block requests using the Nginx lua module.
 
 ```
-apt install crowdsec-nginx-bouncer-lua
+apt install crowdsec-nginx-bouncer -y
 ```{{execute T1}}
 
 Once the component has been installed the post installation script will automatically generate a key for the component. However, we will need to configure the `APPSEC_URL`{{}} using the following snippet:
 
 ```
-echo "APPSEC_URL=http://127.0.0.1:4242/" >> /etc/default/crowdsec
+echo "APPSEC_URL=http://127.0.0.1:4242/" >> /etc/crowdsec/bouncers/crowdsec-nginx-bouncer.conf
 ```{{execute T1}}
 
 Lets test the nginx configuration:
