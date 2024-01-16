@@ -8,8 +8,4 @@ In this workshop, you will learn how to setup CrowdSec AppSec Component and how 
 
 ### What is CrowdSec AppSec Component?
 
-CrowdSec AppSec Component is a component that can be used to protect your web applications. It allows web servers to forward the request to the component and get a response back to allow or block the request. 
-
-## Why not just call it a WAF?
-
-The key difference is that CrowdSec AppSec Component is not a proxy, it is a component that can be used to protect your web applications.
+CrowdSec AppSec Component is a component that can be used to protect your web applications. It allows web servers to forward the request to the component and get a response back to allow or block the request.

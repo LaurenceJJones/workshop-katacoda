@@ -71,4 +71,10 @@ Now we can reload CrowdSec service to enable the AppSec component:
 sudo systemctl restart crowdsec
 ```{{execute T1}}
 
+We can ensure the AppSec port is connectable by running a simple nc command:
+
+```
+nc -zv 127.0.0.1 4242
+```{{execute T1}}
+
 In the next section we will installing and configuring Nginx to use our new AppSec component.

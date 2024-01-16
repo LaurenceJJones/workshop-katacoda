@@ -40,6 +40,14 @@
       {
         "title": "Rule Configuration",
         "text": "step1_5.md"
+      },
+      {
+        "title": "Nginx Configuration",
+        "text": "step1_6.md"
+      },
+      {
+        "title": "Community Rules",
+        "text": "step2_1.md"
       }
     ],
     "assets": {
