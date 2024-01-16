@@ -17,7 +17,7 @@ cscli appsec-rules list
 However, our current AppSec component is not configured to use the community rules. Lets update the configuration file to use the community rules:
 
 ```
-cat > /etc/crowdsec/appsec.yaml << EOF
+cat > /etc/crowdsec/acquis.d/appsec.yaml << EOF
 source: appsec
 name: myappsec
 appsec_config: crowdsecurity/virtual-patching
