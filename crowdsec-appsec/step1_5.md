@@ -64,3 +64,11 @@ EOF
 ```{{execute T1}}
 
 If you would like to see the generate SecLang rule you can run `cscli appsec-rules inspect my/rule`{{execute T1}} and see the rule within the `Modsecurity Format`{{}} section.
+
+Now we can reload CrowdSec service to enable the AppSec component:
+
+```
+sudo systemctl restart crowdsec
+```{{execute T1}}
+
+In the next section we will installing and configuring Nginx to use our new AppSec component.
