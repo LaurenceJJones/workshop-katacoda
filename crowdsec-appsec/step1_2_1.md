@@ -2,7 +2,7 @@ Since we have now configured the AppSec component we can install the official `c
 
 ```
 cscli collections install crowdsecurity/appsec-virtual-patching
-`` `{{execute T1}}
+```{{execute T1}}
 
 Once we have installed the collection we can now enable the AppSec component:
 
