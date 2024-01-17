@@ -4,7 +4,7 @@ If you use any of the official AppSec collections from the [Hub](https://hub.cro
 
 ### Creating the configuration directories
 
-Lets run the following command to create the directories:
+Let's run the following command to create the directories:
 
 `mkdir -p /etc/crowdsec/appsec-{rules,configs}`{{execute T1}}
 

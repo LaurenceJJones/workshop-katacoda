@@ -22,13 +22,13 @@ labels:
   type: appsec
 ```{{}}
 
-See the highlighted line above, matches the `name`{{}} in the configuration file.
+See the highlighted line above, it matches the `name`{{}} in the configuration file.
 
 * `default_remediation: ban|captcha|log`{{}}: This is the default remediation that will be used when a inband rule matches. In this case, we are going to provide the ban template which will block the request. It is important to note that this does not mean the requesting IP address is banned, it means that the request is blocked.
 
-* `inband_rules: - my/rule`{{}}: This is list of rule names that we want to load. In this case, we are going to create one from scratch called `my/rule`{{}}.
+* `inband_rules: - my/rule`{{}}: This is a list of rule names that we want to load. In this case, we are going to create one from scratch called `my/rule`{{}}.
 
-Lets create our configuration file using the below snippet:
+Let's create our configuration file using the below snippet:
 
 ```
 cat > /etc/crowdsec/appsec-configs/my_rules.yaml << EOF
@@ -49,6 +49,6 @@ Inband rules are disruptive, this means that when a rule matches, the remediatio
 
 Outofband rules are not disruptive, this means that when a rule matches the request will always be allowed**. This is useful for rules that you want to create an alert for, but not create a disruption.
 
-In the next section we will create a rule our first rule using standard seclang format and then we will create a rule again using the CrowdSec AppSec Rule Language.
+In the next section we will create our first rule using standard seclang format and then we will create a rule again using the CrowdSec AppSec Rule Language.
 
 **Within the codebase Outofband rules can **never** become disruptive because by the time the outofband is evaluated, the remediation component has already been informed to disrupt or not.
