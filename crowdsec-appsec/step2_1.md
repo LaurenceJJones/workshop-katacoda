@@ -33,13 +33,36 @@ Let's restart the AppSec component:
 systemctl restart crowdsec
 ```{{execute T1}}
 
-Let's test a laravel debug vulnerability using the following snippet:
+Let's test our Wordpress rule we implemented earlier:
 
 ```
-curl -s -vv http://localhost/ --data "0x[]=123" >/dev/null
+curl -s -vv http://127.0.0.1/wp-login.php > /dev/null
 ```{{execute T1}}
 
-You should see the same `403 Forbidden`{{}} response code which means that the request was blocked using community rules.
+You should see the following output:
+
+```
+*   Trying 127.0.0.1:80...
+* TCP_NODELAY set
+* Connected to localhost (127.0.0.1) port 80 (#0)
+> GET /wp-login.php HTTP/1.1
+> Host: localhost
+> User-Agent: curl/7.68.0
+> Accept: */*
+> 
+* Mark bundle as not supporting multiuse
+< HTTP/1.1 403 Forbidden
+< Server: nginx/1.18.0 (Ubuntu)
+< Date: Tue, 16 Jan 2024 15:56:27 GMT
+< Content-Type: text/html
+< Transfer-Encoding: chunked
+< Connection: keep-alive
+< cache-control: no-cache
+< 
+{ [13882 bytes data]
+```{{}}
+
+You can see the `403 Forbidden`{{}} response code which means that the request was blocked by the AppSec component. If the request was blocked from within a browser they would see our standard CrowdSec block page.
 
 However, since we have now changed over to using the community rules, our wordpress rule is no longer loaded into the AppSec component. The current configuration file only loads the community rules.
 

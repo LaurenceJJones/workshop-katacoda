@@ -10,7 +10,7 @@ Once the component has been installed the post installation script will automati
 echo "APPSEC_URL=http://127.0.0.1:4242/" >> /etc/crowdsec/bouncers/crowdsec-nginx-bouncer.conf
 ```{{execute T1}}
 
-Let's test the nginx configuration:
+Let's test the nginx configuration using the following command:
 
 ```
 sudo nginx -t
@@ -28,35 +28,38 @@ This means that the component is configured but we need to reload the Nginx serv
 sudo nginx -s reload
 ```{{execute T1}}
 
-Let's test our Wordpress rule we implemented earlier:
+Let's test a Laravel debug vulnerability using the following snippet:
 
 ```
-curl -s -vv http://127.0.0.1/wp-login.php > /dev/null
+curl -s -vv http://localhost/ --data "0x[]=123" >/dev/null
 ```{{execute T1}}
 
-You should see the following output:
+You should see a `403 Forbidden`{{}} response code which means that the request was blocked using community rules.
 
-```
+```{14}
 *   Trying 127.0.0.1:80...
 * TCP_NODELAY set
 * Connected to localhost (127.0.0.1) port 80 (#0)
-> GET /wp-login.php HTTP/1.1
+> POST / HTTP/1.1
 > Host: localhost
 > User-Agent: curl/7.68.0
 > Accept: */*
+> Content-Length: 8
+> Content-Type: application/x-www-form-urlencoded
 > 
+} [8 bytes data]
+* upload completely sent off: 8 out of 8 bytes
 * Mark bundle as not supporting multiuse
 < HTTP/1.1 403 Forbidden
 < Server: nginx/1.18.0 (Ubuntu)
-< Date: Tue, 16 Jan 2024 15:56:27 GMT
+< Date: Wed, 17 Jan 2024 17:11:36 GMT
 < Content-Type: text/html
 < Transfer-Encoding: chunked
 < Connection: keep-alive
 < cache-control: no-cache
 < 
 { [13882 bytes data]
+* Connection #0 to host localhost left intact
 ```{{}}
 
-You can see the `403 Forbidden`{{}} response code which means that the request was blocked by the AppSec component. If the request was blocked from within a browser they would see our standard CrowdSec block page.
-
-Within the next steps we will be converting the AppSec component to use 
+In the next section we will break down the laravel debug rule and understand how it works.

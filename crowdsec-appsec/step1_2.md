@@ -13,7 +13,7 @@ In this workshop, we will use port 4242 on the loopback interface for the acquis
 ```yaml
 source: appsec
 name: myappsec
-appsec_config: my/rules
+appsec_config: crowdsecurity/virtual-patching
 listen_addr: 127.0.0.1:4242
 labels:
   type: appsec
@@ -21,7 +21,7 @@ labels:
 
 * `source: appsec`{{}}: This is the source of the acquisition, in this case it is the AppSec component. (It must be `appsec`{{}}, putting any other value will cause the acquisition to fail)
 
-* `appsec_config: my/rules`{{}}: This is the configuration that will be used by the AppSec component. In this case, we are going to create one from scratch called `my/rules`{{}}.
+* `appsec_config: crowdsecurity/virtual-patching`{{}}: This is the configuration that will be used by the AppSec component. In this case, we are going to use the official vpatch rules `crowdsecurity/virtual-patching`{{}}.
 
 * `listen_addr: <ip>:<port>`{{}}: This is the address and port that the acquisition will listen on. In this case, we are going to use `127.0.0.1:4242`{{}}.
 
@@ -36,7 +36,7 @@ Let's create the acquistion file using the below snippet:
 mkdir -p /etc/crowdsec/acquis.d && cat > /etc/crowdsec/acquis.d/appsec.yaml << EOF
 source: appsec
 name: myappsec
-appsec_config: my/rules
+appsec_config: crowdsecurity/virtual-patching
 listen_addr: 127.0.0.1:4242
 labels:
   type: appsec

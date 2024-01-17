@@ -30,6 +30,10 @@
         "text": "step1_2.md"
       },
       {
+        "title": "VPatch Collection",
+        "text": "step1_2_1.md"
+      },
+      {
         "title": "AppSec Directories",
         "text": "step1_3.md"
       },
@@ -40,10 +44,6 @@
       {
         "title": "Rule Configuration",
         "text": "step1_5.md"
-      },
-      {
-        "title": "Nginx Configuration",
-        "text": "step1_6.md"
       },
       {
         "title": "Community Rules",
