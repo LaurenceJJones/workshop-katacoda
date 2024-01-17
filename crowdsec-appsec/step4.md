@@ -1,6 +1,6 @@
 ## Preparations
 
-Let's ensure the detection and remediation is working. Firstly lets tail the crowdsec log so we can see the detection in realtime.
+Let's ensure the detection and remediation is working. Firstly let's tail the crowdsec log so we can see the detection in realtime.
 
 `tail -f /var/log/crowdsec.log`{{exec}}
 

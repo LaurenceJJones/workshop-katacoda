@@ -2,10 +2,10 @@ In this step we will be creating the actual rule used by the underlying [Coraza 
 
 ## Yaml configuration example
 
-Here a concise example configuration file:
+Here is a concise example configuration file:
 
 ```yaml
-## We dont host wordpress so block bots attempting to fetch wp-login.php
+## We don't host wordpress so block bots attempting to fetch wp-login.php
 name: my/rule
 description: "Detect bots attempting wordpress login page"
 rules:
@@ -26,7 +26,7 @@ inband_rules:
  - my/rule
 ```{{}}
 
-See the highlighted line above, matches the `inband_rules`{{}} in the configuration file.
+See the highlighted line above, it matches the `inband_rules`{{}} in the configuration file.
 
 * `description: "Detect bots attempting wordpress login page"`{{}}: This is a description of the rule, it can be anything you want, however, it is recommended to provide a description so you know what the rule is doing.
 
@@ -46,11 +46,11 @@ Within our DSL we have abstracted the SecLang zones into a more human readable f
 
 Within our DSL we have abstracted the SecLang operator types into a more human readable format. You can see our list of supported match types [here](https://docs.crowdsec.net/docs/next/appsec/rules_syntax#match).
 
-Lets create our rule using the below snippet:
+Let's create our rule using the below snippet:
 
 ```
 cat > /etc/crowdsec/appsec-rules/my_rule.yaml << EOF
-## We dont host wordpress so block bots attempting to fetch wp-login.php
+## We don't host wordpress so block bots attempting to fetch wp-login.php
 name: my/rule
 description: "Detect bots attempting wordpress login page"
 rules:
@@ -77,4 +77,4 @@ We can ensure the AppSec port is connectable by running a simple nc command:
 nc -zv 127.0.0.1 4242
 ```{{execute T1}}
 
-In the next section we will installing and configuring Nginx to use our new AppSec component.
+In the next section we will installing and configure Nginx to use our new AppSec component.

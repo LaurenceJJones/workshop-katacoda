@@ -10,7 +10,7 @@ Once the component has been installed the post installation script will automati
 echo "APPSEC_URL=http://127.0.0.1:4242/" >> /etc/crowdsec/bouncers/crowdsec-nginx-bouncer.conf
 ```{{execute T1}}
 
-Lets test the nginx configuration:
+Let's test the nginx configuration:
 
 ```
 sudo nginx -t
@@ -28,7 +28,7 @@ This means that the component is configured but we need to reload the Nginx serv
 sudo nginx -s reload
 ```{{execute T1}}
 
-Lets test our Wordpress rule we implemented earlier:
+Let's test our Wordpress rule we implemented earlier:
 
 ```
 curl -s -vv http://127.0.0.1/wp-login.php > /dev/null

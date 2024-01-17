@@ -1,4 +1,4 @@
-Lets setup the CrowdSec AppSec Component step by step so we can understand how it works.
+Let's set up the CrowdSec AppSec Component step by step so we can understand how it works.
 
 In this step, we will configure the acquisition for the AppSec component.
 
@@ -19,7 +19,7 @@ labels:
   type: appsec
 ```{{}}
 
-* `source: appsec`{{}}: This is the source of the acquisition, in this case it is the AppSec component. (It must be `appsec`{{}} putting any other value will cause the acquisition to fail)
+* `source: appsec`{{}}: This is the source of the acquisition, in this case it is the AppSec component. (It must be `appsec`{{}}, putting any other value will cause the acquisition to fail)
 
 * `appsec_config: my/rules`{{}}: This is the configuration that will be used by the AppSec component. In this case, we are going to create one from scratch called `my/rules`{{}}.
 
@@ -30,7 +30,7 @@ labels:
 * `name: myappsec`{{}} **optional**: This is the name of the acquisition, it can be anything you want. This is useful when you have multiple acquisitions as the name is provided within the log line.
 
 
-Lets create the acquistion file using the below snippet:
+Let's create the acquistion file using the below snippet:
 
 ```
 mkdir -p /etc/crowdsec/acquis.d && cat > /etc/crowdsec/acquis.d/appsec.yaml << EOF
