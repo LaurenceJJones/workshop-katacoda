@@ -16,10 +16,27 @@ The `appsec-rules`{{}} directory is where we will store the rules that we want t
 
 Let's take a look at the laravel debug rule:
 
-Run the following command:
-```
-cat /etc/crowdsec/appsec-rules/vpatch-laravel-debug-mode.yaml
-```{{execute T1}}
+```yaml
+name: crowdsecurity/vpatch-laravel-debug-mode
+description: "Detect bots exploiting laravel debug mode"
+#see https://github.com/s1miii/cape/blob/main/ler.py : bot is trying to trigger a debug log to extract secrets.
+rules:
+  - and:
+    - zones:
+      - METHOD
+      match:
+        type: equals
+        value: POST
+    - zones:
+        - BODY_ARGS_NAMES
+      transform:
+        - lowercase
+      match:
+        type: equals
+        value: "0x[]"
+labels:
+...
+```{{}}
 
 We are going to ignore the `labels`{{}} section for now as I want to focus on the top section.
 
