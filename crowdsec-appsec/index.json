@@ -44,6 +44,10 @@
       {
         "title": "AppSec Configuration",
         "text": "step1_4.md"
+      },
+      {
+        "title": "Custom Rule",
+        "text": "step1_5.md"
       }
     ],
     "assets": {
