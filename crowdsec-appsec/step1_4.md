@@ -40,3 +40,5 @@ Outofband rules are not disruptive, this means that when a rule matches the requ
 In the next section we will create our first rule using standard seclang format and then we will create a rule again using the CrowdSec AppSec Rule Language.
 
 **Within the codebase Outofband rules can **never** become disruptive because by the time the outofband is evaluated, the remediation component has already been informed to disrupt or not.
+
+In the next step lets write our own rules using the knowledge we gained so far!

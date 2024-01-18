@@ -4,13 +4,13 @@ Before diving into the breakdown of the laravel debug rule, let's take a look at
 ls -la /etc/crowdsec | grep appsec
 ```{{execute T1}}
 
-#### Rules Directory
-
-The `appsec-rules`{{}} directory is where we will store the rules that we want to use to protect our web applications. Think of this as the rules that you would use in a WAF.
-
 #### Configs Directory
 
 The `appsec-configs`{{}} directory is where we will store the configuration files for the CrowdSec AppSec Component. These files instruct the component how to behave and which rules to load as you may want to load different rules for different applications.
+
+#### Rules Directory
+
+The `appsec-rules`{{}} directory is where we will store the rules that we want to use to protect our web applications. Think of this as the rules that you would use in a WAF.
 
 ### Laravel Debug Rule
 
@@ -29,7 +29,7 @@ We are going to ignore the `labels`{{}} section for now as I want to focus on th
 
 * `rules:`{{}}: This is the start of the rules section, this is where you can define our own DSL rules.
 
-* `and|or:`{{}}: This is the start of the rule, it is required to state the modifier for each rules. This is the logical operator that will be used to evaluate the rules. In this case, we are using `and`{{}} which means that all conditions must be met for the rule to match.
+* `- and|or:`{{}}: This is the start of the rule, it is required to state the modifier for each rules. This is the logical operator that will be used to evaluate the rules. In this case, we are using `and`{{}} which means that all conditions must be met for the rule to match.
 
 [You can read more on SecLang chain rules](https://coraza.io/docs/seclang/actions/#chain)
 

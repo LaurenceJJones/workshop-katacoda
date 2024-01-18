@@ -1,50 +1,8 @@
-In this step we will be creating the actual rule used by the underlying [Coraza engine](https://coraza.io/).
+We keep seeing bots requesting `wp-login.php`, however, we dont host wordpress so we want to block these requests.
 
-## Yaml configuration example
+Let's create a rule that will block any request that contains `wp-login.php` within the URI.
 
-Here is a concise example configuration file:
-
-```yaml
-## We don't host wordpress so block bots attempting to fetch wp-login.php
-name: my/rule
-description: "Detect bots attempting wordpress login page"
-rules:
-  - and:
-    - zones:
-      - URI
-      match:
-        type: contains
-        value: "wp-login.php"
-```{{}}
-
-* `name: my/rule`{{}}: This is the name of the rule, it can be anything you want, however, it must match what you defined within the configuration file. If you change the name here, you must also change it in the configuration file.
-
-```yaml{4}
-name: my/rules
-default_remediation: ban
-inband_rules:
- - my/rule
-```{{}}
-
-See the highlighted line above, it matches the `inband_rules`{{}} in the configuration file.
-
-* `description: "Detect bots attempting wordpress login page"`{{}}: This is a description of the rule, it can be anything you want, however, it is recommended to provide a description so you know what the rule is doing.
-
-* `rules:`{{}}: This is the start of the rules section, this is where you can define our own DSL rules.
-
-We are writing a basic rule that will block any request that contains `wp-login.php`{{}} within the URI. I will break down the rule below:
-
-* `and|or:`{{}}: This is the start of the rule, it is required to state the modifier for each rules. This is the logical operator that will be used to evaluate the rules. In this case, we are using `and`{{}} which means that all conditions must be met for the rule to match.
-
-[You can read more on SecLang chain rules](https://coraza.io/docs/seclang/actions/#chain)
-
-* `- zones: - URI`{{}}: This is the start of the zone section, this is where you can define which zones you want to match against. In this case, we are matching against the `URI`{{}} zone. You can define multiple zones within a rule.
-
-Within our DSL we have abstracted the SecLang zones into a more human readable format. You can see our list of supported zones [here](https://docs.crowdsec.net/docs/next/appsec/rules_syntax#target).
-
-* `match:`{{}}: This is the start of the match section, this is where you can define which type of match you want to use. In this case, we are using `contains`{{}} which means that the value must be contained within the zone.
-
-Within our DSL we have abstracted the SecLang operator types into a more human readable format. You can see our list of supported match types [here](https://docs.crowdsec.net/docs/next/appsec/rules_syntax#match).
+We are going to create a rule using the CrowdSec AppSec Rule Language.
 
 Let's create our rule using the below snippet:
 
@@ -56,25 +14,62 @@ description: "Detect bots attempting wordpress login page"
 rules:
   - and:
     - zones:
-      - URI
+        - URI
+      transform:
+        - lowercase
       match:
         type: contains
         value: "wp-login.php"
 EOF
 ```{{execute T1}}
 
-If you would like to see the generate SecLang rule you can run `cscli appsec-rules inspect my/rule`{{execute T1}} and see the rule within the `Modsecurity Format`{{}} section.
+Great since we created the rule we need to edit the `AppSec`{{}} configuration file to load the rule.
 
-Now we can reload CrowdSec service to enable the AppSec component:
-
-```
-sudo systemctl restart crowdsec
-```{{execute T1}}
-
-We can ensure the AppSec port is connectable by running a simple nc command:
+Open `/etc/crowdsec/appsec-configs/virtual-patching.yaml` with your favorite editor and add the following line:
 
 ```
-nc -zv 127.0.0.1 4242
+...
+inband_rules:
+ - crowdsecurity/base-config 
+ - crowdsecurity/vpatch-*
+ - "my/*" # <--- Add this line
+```{{}}
+
+Let's restart the AppSec component:
+
+```
+systemctl restart crowdsec
 ```{{execute T1}}
 
-In the next section we will installing and configure Nginx to use our new AppSec component.
+Let's test our Wordpress rule we implemented earlier:
+
+```
+curl -s -vv http://127.0.0.1/wp-login.php > /dev/null
+```{{execute T1}}
+
+You should see the following output:
+
+```{14}
+*   Trying 127.0.0.1:80...
+* TCP_NODELAY set
+* Connected to localhost (127.0.0.1) port 80 (#0)
+> GET /wp-login.php HTTP/1.1
+> Host: localhost
+> User-Agent: curl/7.68.0
+> Accept: */*
+> 
+* Mark bundle as not supporting multiuse
+< HTTP/1.1 403 Forbidden
+< Server: nginx/1.18.0 (Ubuntu)
+< Date: Tue, 16 Jan 2024 15:56:27 GMT
+< Content-Type: text/html
+< Transfer-Encoding: chunked
+< Connection: keep-alive
+< cache-control: no-cache
+< 
+{ [13882 bytes data]
+```{{}}
+
+You can see the `403 Forbidden`{{}} response code which means that the request was blocked by the AppSec component.
+
+How easy was that? We just created our first custom rule using the CrowdSec AppSec Rule Language.
