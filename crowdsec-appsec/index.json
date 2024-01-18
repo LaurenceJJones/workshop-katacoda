@@ -38,20 +38,12 @@
         "text": "step1_2_2.md"
       },
       {
-        "title": "Rule Breakdown",
+        "title": "AppSec Directories",
         "text": "step1_3.md"
       },
       {
-        "title": "Rules Configuration",
+        "title": "AppSec Configuration",
         "text": "step1_4.md"
-      },
-      {
-        "title": "Rule Configuration",
-        "text": "step1_5.md"
-      },
-      {
-        "title": "Community Rules",
-        "text": "step2_1.md"
       }
     ],
     "assets": {

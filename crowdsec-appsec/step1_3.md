@@ -16,33 +16,10 @@ The `appsec-configs`{{}} directory is where we will store the configuration file
 
 Let's take a look at the laravel debug rule:
 
-Either run:
+Run the following command:
 ```
 cat /etc/crowdsec/appsec-rules/vpatch-laravel-debug-mode.yaml
 ```{{execute T1}}
-
-Or view the file in the Browser:
-
-```yaml
-name: crowdsecurity/vpatch-laravel-debug-mode
-description: "Detect bots exploiting laravel debug mode"
-rules:
-  - and:
-    - zones:
-      - METHOD
-      match:
-        type: equals
-        value: POST
-    - zones:
-        - BODY_ARGS_NAMES
-      transform:
-        - lowercase
-      match:
-        type: equals
-        value: "0x[]"
-labels:
-...
-```
 
 We are going to ignore the `labels`{{}} section for now as I want to focus on the top section.
 
@@ -60,7 +37,7 @@ We are going to ignore the `labels`{{}} section for now as I want to focus on th
 
 Within our DSL we have abstracted the SecLang zones into a more human readable format. You can see our list of supported zones [here](https://docs.crowdsec.net/docs/next/appsec/rules_syntax#target).
 
-* `match:`{{}}: This is the start of the match section, this is where you can define which type of match you want to use. In this case, we are using `equals`{{}} which means that the value must be an exact match the zone3.
+* `match:`{{}}: This is the start of the match section, this is where you can define which type of match you want to use. In this case, we are using `equals`{{}} which means that the value must be an exact match the zone.
 
 Within our DSL we have abstracted the SecLang operator types into a more human readable format. You can see our list of supported match types [here](https://docs.crowdsec.net/docs/next/appsec/rules_syntax#match).
 

@@ -2,7 +2,7 @@ Let's set up the CrowdSec AppSec Component step by step so we can understand how
 
 In this step, we will configure the acquisition for the AppSec component.
 
-This is a special acquisition that will listen on a TCP socket for requests from web servers.
+This is a special acquisition that will listen on a TCP socket for requests from web servers. (Unix sockets support soon)
 
 In this workshop, we will use port 4242 on the loopback interface for the acquisition.
 
