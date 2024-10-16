@@ -1,5 +1,7 @@
 Since we have now configured the AppSec component we can install the official `crowdsecurity/appsec-virtual-patching` collection which contains commonly exploited vulnerabilities.
 
+We will also install the `crowdsecurity/appsec-generic-rules` collection which contains generic rules that can be used to protect your applications.
+
 ```
 cscli collections install crowdsecurity/appsec-virtual-patching crowdsecurity/appsec-generic-rules
 ```{{execute T1}}
