@@ -32,6 +32,7 @@ Open `/etc/crowdsec/appsec-configs/appsec-default.yaml` with your favorite edito
 inband_rules:
  - crowdsecurity/base-config 
  - crowdsecurity/vpatch-*
+ - crowdsecurity/generic-*
  - "my/*" # <--- Add this line
 ```{{}}
 
