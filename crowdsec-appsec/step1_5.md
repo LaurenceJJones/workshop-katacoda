@@ -50,7 +50,7 @@ curl -s -vv http://127.0.0.1/wp-login.php > /dev/null
 
 You should see the following output:
 
-```{14}
+```{10}
 *   Trying 127.0.0.1:80...
 * TCP_NODELAY set
 * Connected to localhost (127.0.0.1) port 80 (#0)
