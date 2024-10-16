@@ -1,4 +1,4 @@
-Whilst we have the preview repositories installed we can also install the preview version of the Nginx lua remediation component. This will allow us to block requests using the Nginx lua module.
+Whilst we have the repositories installed we can also install the version of the Nginx lua remediation component. This will allow us to block requests using the Nginx lua module.
 
 ```
 apt install crowdsec-nginx-bouncer -y
