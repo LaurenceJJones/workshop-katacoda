@@ -1,8 +1,6 @@
-Before we can start, we have to install the preview version of `CrowdSec Security Engine`{{}}. Versions `v1.5.6-*`{{}} are preview versions of `v1.6.0`{{}}.
+The AppSec Component was released as a version `1.6.0` and is apart of the main CrowdSec binary. This means that you can install the CrowdSec binary and have the AppSec Component available to you.
 
-You can test if you are on a preview version by running `cscli version`{{}} and seeing if it matches the version on [Github](https://github.com/crowdsecurity/crowdsec/releases).
-
-This gives us access to the preview packages:
+This gives us access to the packages:
 `curl -s https://install.crowdsec.net/ | sudo sh`{{execute T1}}
 
 Great, now we can install the `CrowdSec Security Engine`{{}}. It allows you to detect bad behaviors by analyzing log files and other data sources.
