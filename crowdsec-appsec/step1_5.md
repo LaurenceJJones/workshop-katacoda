@@ -25,7 +25,7 @@ EOF
 
 Great since we created the rule we need to edit the `AppSec`{{}} configuration file to load the rule.
 
-Open `/etc/crowdsec/appsec-configs/virtual-patching.yaml` with your favorite editor and add the following line:
+Open `/etc/crowdsec/appsec-configs/appsec-default.yaml` with your favorite editor and add the following line:
 
 ```
 ...
