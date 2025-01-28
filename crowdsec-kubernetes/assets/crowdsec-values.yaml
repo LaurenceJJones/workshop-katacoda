@@ -5,6 +5,13 @@ tls:
     reflector:
       namespaces: ["traefik"]
 agent:
+  resources:
+    requests:
+      cpu: 100m
+      memory: 100Mi
+    limits:
+      cpu: 100m
+      memory: 100Mi
   acquisition:
     # The namespace where the pod is located
     - namespace: traefik
@@ -29,6 +36,13 @@ lapi:
   persistentVolume:
     config:
       enabled: false
+  resources:
+    requests:
+      cpu: 100m
+      memory: 100Mi
+    limits:
+      cpu: 100m
+      memory: 100Mi
   env:
     # For an internal test, disable the Online API
     - name: DISABLE_ONLINE_API
