@@ -1,26 +1,29 @@
-# Step 5: Install the remediation component middleware
+# Step 3: Install the helloworld app
 
-Traefik expects a resource of “Middleware” type named “bouncer”, which we will create now.
+We use this simple app to test the setup. It is a simple web server that returns a "Hello, World!" message with 200 status code.
 
-## Show the values file
-
-```bash
-cat bouncer-middleware.yaml
-```{{exec}}
-
-We are using crowdsecMode: none, because it works in real-time, but it queries the database for each connection. In production, we recommend stream for any substantial amount of traffic. For all the possible modes see [the plugin’s documentation](https://plugins.traefik.io/plugins/6335346ca4caa9ddeffda116/crowdsec-bouncer-traefik-plugin).
-
-## Install the bouncer middleware
+## Install the helloworld app
 
 ```bash
-kubectl apply -f bouncer-middleware.yaml
+helm install helloworld crowdsec/helloworld --namespace default --set ingress.enabled=true
 ```{{exec}}
 
-For more information, see [Routing Configuration / Kind: Middleware](https://doc.traefik.io/traefik/routing/providers/kubernetes-crd/#kind-middleware).
+## Verify the installation
 
-We can verify that there is no errors in the dashboard.
+```bash
+kubectl get pods -n default
+```{{exec}}
 
-## Access the Traefik dashboard
+## Access the app
 
-{{TRAFFIC_HOST1_8080}}
+we can modify `/etc/hosts` to add the hostname of the helloworld app.
 
+```bash
+echo "{{TRAFFIC_HOST1}} helloworld.local" | sudo tee -a /etc/hosts
+```{{execute T2}}
+
+```bash
+curl http://helloworld.local
+```{{execute T2}}
+
+You should see a "Hello, World!" message.

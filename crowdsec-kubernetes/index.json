@@ -27,15 +27,15 @@
         "text": "step2/text.md"
       },
       {
-        "title": "Install Hello World App",
+        "title": "Install Crowdsec",
         "text": "step3/text.md"
       },
       {
-        "title": "Install Crowdsec",
+        "title": "Install the Bouncer Middleware",
         "text": "step4/text.md"
       },
       {
-        "title": "Install the Bouncer Middleware",
+        "title": "Install Hello World App",
         "text": "step5/text.md"
       },
       {

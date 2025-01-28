@@ -6,7 +6,7 @@ Before starting, you will need to know about the context of the exercise. You ha
 * Helm
 * Kubernetes CLI (kubectl)
 
-We can verify that the cluster is up and running by running the following command:
+We can verify that the cluster is up and running by running the following commands:
 
 ```bash
 kubectl cluster-info

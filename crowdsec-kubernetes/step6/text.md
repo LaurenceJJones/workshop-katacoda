@@ -1,8 +1,24 @@
 # Step 6: Test the setup
 
-We can try to access the helloworld app again, and see if the attacker is blocked.
+We can try to simulate an attack and verify that the attacker is blocked.
 
-## Access the app
+## Simulate an attack
+
+To test Crowdsec detection, we can simulate an attack by using nikto:
+
+```bash
+nikto -host http://helloworld.local
+```{{execute T2}}
+
+## Verify the detection
+
+Now, let’s check crowdsec decisions:
+
+```bash
+kubectl -n crowdsec exec -it $(kubectl -n crowdsec get pods -l type=lapi -o jsonpath='{.items[0].metadata.name}') -- cscli decisions list
+```{{exec}}
+
+## Check access to the app again
 
 ```bash
 curl -I http://helloworld.local

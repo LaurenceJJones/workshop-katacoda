@@ -1,49 +1,27 @@
-# Step 4: Install CrowdSec
+# Step 5: Install the remediation component middleware
 
-We can install CrowdSec using our helm chart, and the values file provided.
+Traefik expects a resource of “Middleware” type named “bouncer”, which we will create now.
 
 ## Show the values file
 
 ```bash
-cat crowdsec-values.yaml
+cat bouncer-middleware.yaml
 ```{{exec}}
 
-In a production system, you’ll want to keep the Online API and pass your enrollment key in the environment. You can do this by setting the `DISABLE_ONLINE_API` environment variable to `false` in the `crowdsec-values.yaml` file.
+We are using crowdsecMode: none, because it works in real-time, but it queries the database for each connection. In production, we recommend stream for any substantial amount of traffic. For all the possible modes see [the plugin’s documentation](https://plugins.traefik.io/plugins/6335346ca4caa9ddeffda116/crowdsec-bouncer-traefik-plugin).
 
-## Install CrowdSec
+## Install the bouncer middleware
 
 ```bash
-helm install crowdsec crowdsec/crowdsec --create-namespace --namespace crowdsec  -f crowdsec-values.yaml
+kubectl apply -f bouncer-middleware.yaml
 ```{{exec}}
 
-## Verify the installation
+For more information, see [Routing Configuration / Kind: Middleware](https://doc.traefik.io/traefik/routing/providers/kubernetes-crd/#kind-middleware).
 
-```bash
-kubectl get pods -n crowdsec
-```{{exec}}
+We can verify that there is no errors in the dashboard.
 
-## Simulate an attack
+## Access the Traefik dashboard
 
-To test Crowdsec detection, we can simulate an attack by using nikto:
+{{TRAFFIC_HOST1_8080}}
 
-```bash
-nikto -host http://helloworld.local
-```{{execute T2}}
-
-## Verify the detection
-
-Now, let’s check crowdsec decisions:
-
-```bash
-kubectl -n crowdsec exec -it $(kubectl -n crowdsec get pods -l type=lapi -o jsonpath='{.items[0].metadata.name}') -- cscli decisions list
-```{{exec}}
-
-## Check access to the app
-
-```bash
-curl http://helloworld.local
-```{{execute T2}}
-
-The decision is present, but the attacker can still access the app. This is because we haven’t installed the bouncer yet. We will do that in the next step.
-
-
+In the dashboard, you can have a look at the routers. The bouncer plugin is now installed and configured.

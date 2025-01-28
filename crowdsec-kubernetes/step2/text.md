@@ -20,8 +20,12 @@ helm install traefik traefik/traefik --create-namespace --namespace traefik -f t
 kubectl get pods -n traefik
 ```{{exec}}
 
-## Access the Traefik dashboard
+you will notice that the traefik pod is not ready yet. 
 
-You can access the Traefik dashboard by clicking on the link below:
+## Describe the pod
 
-{{TRAFFIC_HOST1_8080}}
+```bash
+kubectl -n traefik describe pod
+```{{exec}}
+
+Since the plugin cannot start without a bouncer certificate, which in turn is created by CrowdSec+Cert-manager, the whole Traefik pod will be on hold waiting for CrowdSec to be installed.

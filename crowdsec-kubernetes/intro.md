@@ -10,11 +10,11 @@ For the workshop, you will :
 
 2- Install the Traefik Ingress Controller
 
-3- Install the hello-world app
+3- Install CrowdSec
 
-4- Install CrowdSec
+4- Install the remediation component middleware
 
-5- Install the remediation component middleware
+5- Install the helloWorld app
 
 6- Test the setup
 

@@ -1,27 +1,39 @@
-# Step 3: Install the helloworld app
+# Step 4: Install CrowdSec
 
-We use this simple app to test the setup. It is a simple web server that returns a "Hello, World!" message with 200 status code.
+We can install CrowdSec using our helm chart, and the values file provided.
 
-## Install the helloworld app
+## Show the values file
 
 ```bash
-helm install helloworld crowdsec/helloworld --namespace default --set ingress.enabled=true
+cat crowdsec-values.yaml
+```{{exec}}
+
+In a production system, you’ll want to keep the Online API and pass your enrollment key in the environment. You can do this by setting the `DISABLE_ONLINE_API` environment variable to `false` in the `crowdsec-values.yaml` file.
+
+## Install CrowdSec
+
+```bash
+helm install crowdsec crowdsec/crowdsec --create-namespace --namespace crowdsec  -f crowdsec-values.yaml
 ```{{exec}}
 
 ## Verify the installation
 
 ```bash
-kubectl get pods -n default
+kubectl get pods -n crowdsec
 ```{{exec}}
 
-## Access the app
+## Check the Traefik pod
 
-we can modify `/etc/hosts` to add the hostname of the helloworld app.
-
-```bash
-echo "{{TRAFFIC_HOST1}} helloworld.local" | sudo tee -a /etc/hosts
-```{{execute T2}}
+When the CrowdSec pods are ready, we can also check the Traefik pod to see if it successfully mounted the bouncer certificate:
 
 ```bash
-curl http://helloworld.local
-```{{execute T2}}
+kubectl -n traefik get pods
+```{{exec}}
+
+## Access the Traefik dashboard
+
+Now the Traefik pod is ready, you can access the Traefik dashboard by clicking on the link below:
+
+{{TRAFFIC_HOST1_8080}}
+
+In the dashboard, you can have a look at the routers. Somethind is not right, because the bouncer plugin has been installed but not configured yet.
