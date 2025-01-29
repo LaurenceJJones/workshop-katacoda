@@ -5,7 +5,10 @@ We use this simple app to test the setup. It is a simple web server that returns
 ## Install the helloworld app
 
 ```bash
-helm install helloworld crowdsec/helloworld --namespace default --set ingress.enabled=true
+helm install helloworld crowdsec/helloworld \
+  --namespace default \
+  --set ingress.enabled=true \
+  --set ingress.annotations."kubernetes\.io/ingress\.class"=traefik
 ```{{exec}}
 
 ## Verify the installation
