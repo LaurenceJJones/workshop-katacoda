@@ -22,6 +22,6 @@ We can verify that there is no errors in the dashboard.
 
 ## Access the Traefik dashboard
 
-{{TRAFFIC_NODE1_8080}}
+{{TRAFFIC_HOST2_8080}}
 
 In the dashboard, you can have a look at the routers. The bouncer plugin is now installed and configured.
