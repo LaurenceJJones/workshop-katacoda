@@ -16,14 +16,17 @@ kubectl get pods -n default
 
 ## Access the app
 
+We can access the app by using the node01 IP address.
+
+
 we can modify `/etc/hosts` to add the hostname of the helloworld app.
 
 ```bash
 echo "$(getent hosts node01 | awk '{ print $1 }') helloworld.local" | sudo tee -a /etc/hosts
-```{{execute T2}}
+```{{exec}}
 
 ```bash
 curl http://helloworld.local
-```{{execute T2}}
+```{{exec}}
 
 You should see a "Hello, World!" message.
