@@ -4,7 +4,7 @@ logs:
 service:
   type: NodePort
 ports:
-  treafik:
+  traefik:
     expose: true
 experimental:
   plugins:
