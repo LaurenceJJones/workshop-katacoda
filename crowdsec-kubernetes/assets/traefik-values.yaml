@@ -5,6 +5,8 @@ service:
   type: NodePort
 ports:
   traefik:
+    port: 8080
+    hostPort: 8080
     expose:
       default: true
     exposedPort: 8080
