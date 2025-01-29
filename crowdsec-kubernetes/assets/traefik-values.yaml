@@ -5,7 +5,8 @@ service:
   type: NodePort
 ports:
   traefik:
-    expose: true
+    expose:
+      default: true
 experimental:
   plugins:
     bouncer:
