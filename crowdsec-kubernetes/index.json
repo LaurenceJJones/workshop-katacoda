@@ -48,7 +48,8 @@
             {"file": ".bashrc", "target": "/root/"},
             {"file": "traefik-values.yaml", "target": "/root/"},
             {"file": "crowdsec-values.yaml", "target": "/root/"},
-            {"file": "bouncer-middleware.yaml", "target": "/root/"}
+            {"file": "bouncer-middleware.yaml", "target": "/root/"},
+            {"file": "helloworld-ingress-values.yaml", "target": "/root/"}
         ]
     },
     "intro": {
