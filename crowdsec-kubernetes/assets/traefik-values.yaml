@@ -16,9 +16,7 @@ additionalArguments:
   - "--entrypoints.web.http.middlewares=traefik-bouncer@kubernetescrd"
   - "--entrypoints.websecure.http.middlewares=traefik-bouncer@kubernetescrd"
   - "--providers.kubernetescrd"
-  - "--api.insecure"
 ingressRoute:
   dashboard:
     enabled: true
-    entryPoints:
-      - web
+    entryPoints: ["web"]
