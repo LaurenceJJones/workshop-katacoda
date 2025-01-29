@@ -4,6 +4,16 @@ logs:
 service:
   type: NodePort
 ports:
+  web:
+    port: 8000
+    hostPort: 8000
+    exposedPort: 80
+    protocol: TCP
+  websecure:
+    port: 8443
+    hostPort: 8443
+    exposedPort: 443
+    protocol: TCP
   traefik:
     port: 8080
     hostPort: 8080
