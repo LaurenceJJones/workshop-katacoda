@@ -3,6 +3,8 @@ logs:
     enabled: true
 service:
   type: NodePort
+  spec:
+    externalTrafficPolicy: Local
 ports:
   web:
     port: 8000
