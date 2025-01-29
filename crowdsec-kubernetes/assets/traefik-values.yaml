@@ -3,6 +3,9 @@ logs:
     enabled: true
 service:
   type: NodePort
+ports:
+  treafik:
+    expose: true
 experimental:
   plugins:
     bouncer:
@@ -19,4 +22,3 @@ additionalArguments:
 ingressRoute:
   dashboard:
     enabled: true
-    entryPoints: ["web"]
