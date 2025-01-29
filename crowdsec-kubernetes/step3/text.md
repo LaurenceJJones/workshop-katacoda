@@ -36,4 +36,4 @@ Now the Traefik pod is ready, you can access the Traefik dashboard by clicking o
 
 {{TRAFFIC_HOST1_8080}}
 
-In the dashboard, you can have a look at the routers. Somethind is not right, because the bouncer plugin has been installed but not configured yet.
+In the dashboard, you can have a look at the routers. Something is not right, because the bouncer plugin has been installed but not configured yet.
