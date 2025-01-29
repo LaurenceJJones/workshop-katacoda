@@ -19,7 +19,7 @@ kubectl get pods -n default
 we can modify `/etc/hosts` to add the hostname of the helloworld app.
 
 ```bash
-echo "{{TRAFFIC_HOST1}} helloworld.local" | sudo tee -a /etc/hosts
+echo "$(getent hosts node01 | awk '{ print $1 }') helloworld.local" | sudo tee -a /etc/hosts
 ```{{execute T2}}
 
 ```bash

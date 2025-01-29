@@ -34,6 +34,6 @@ kubectl -n traefik get pods
 
 Now the Traefik pod is ready, you can access the Traefik dashboard by clicking on the link below:
 
-{{TRAFFIC_HOST1_8080}}
+{{TRAFFIC_NODE1_8080}}
 
 In the dashboard, you can have a look at the routers. Something is not right, because the bouncer plugin has been installed but not configured yet.
