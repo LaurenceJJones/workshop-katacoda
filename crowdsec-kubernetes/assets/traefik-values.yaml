@@ -1,8 +1,6 @@
 logs:
   access:
     enabled: true
-service:
-  type: NodePort
 ports:
   traefik:
     expose:
