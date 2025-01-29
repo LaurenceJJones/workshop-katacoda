@@ -1,6 +1,8 @@
 logs:
   access:
     enabled: true
+service:
+  type: NodePort
 experimental:
   plugins:
     bouncer:
