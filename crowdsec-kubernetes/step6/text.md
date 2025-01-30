@@ -31,7 +31,7 @@ The attacker should be blocked, and you should see a 403 Forbidden response.
 We can remove the decision, and try to access the app again.
 
 ```bash
-kubectl -n crowdsec exec -it $(kubectl -n crowdsec get pods -l type=lapi -o jsonpath='{.items[0].metadata.name}') -- cscli decisions delete --ip $(getent hosts node01 | awk '{ print $1 }')
+kubectl -n crowdsec exec -it $(kubectl -n crowdsec get pods -l type=lapi -o jsonpath='{.items[0].metadata.name}') -- cscli decisions delete --all
 ```{{exec}}
 
 ## Access the app
