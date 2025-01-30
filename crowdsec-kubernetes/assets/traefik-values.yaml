@@ -6,10 +6,10 @@ service:
 ports:
   web:
     port: 8000
-    hostPort: 8000
     expose:
       default: true
     exposedPort: 80
+    targetPort: 80
     protocol: TCP
   websecure:
     port: 8443
@@ -17,6 +17,7 @@ ports:
     expose:
       default: true
     exposedPort: 443
+    targetPort: 80
     protocol: TCP
   traefik:
     port: 8080
