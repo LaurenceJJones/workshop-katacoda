@@ -7,8 +7,7 @@ We use this simple app to test the setup. It is a simple web server that returns
 ```bash
 helm install helloworld crowdsec/helloworld \
   --namespace default \
-  --set ingress.enabled=true \
-  --set ingress.annotations."kubernetes\.io/ingress\.class"=traefik
+  --set ingress.enabled=true
 ```{{exec}}
 
 ## Verify the installation
@@ -29,7 +28,7 @@ echo "$(getent hosts node01 | awk '{ print $1 }') helloworld.local" | sudo tee -
 ```{{exec}}
 
 ```bash
-curl http://helloworld.local
+curl http://helloworld.local:8000
 ```{{exec}}
 
 You should see a "Hello, World!" message.

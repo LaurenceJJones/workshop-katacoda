@@ -7,7 +7,7 @@ We can try to simulate an attack and verify that the attacker is blocked.
 To test Crowdsec detection, we can simulate an attack by using nikto:
 
 ```bash
-nikto -host http://helloworld.local
+nikto -host http://helloworld.local:8000
 ```{{exec}}
 
 ## Verify the detection
@@ -21,7 +21,7 @@ kubectl -n crowdsec exec -it $(kubectl -n crowdsec get pods -l type=lapi -o json
 ## Check access to the app again
 
 ```bash
-curl -I http://helloworld.local
+curl -I http://helloworld.local:8000
 ```{{exec}}
 
 The attacker should be blocked, and you should see a 403 Forbidden response.
@@ -37,7 +37,7 @@ kubectl -n crowdsec exec -it $(kubectl -n crowdsec get pods -l type=lapi -o json
 ## Access the app
 
 ```bash
-curl -I http://helloworld.local
+curl -I http://helloworld.local:8000
 ```{{exec}}
 
 The helloworld app is accessible again.

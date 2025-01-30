@@ -11,6 +11,11 @@ ports:
       default: true
     exposedPort: 8080
     protocol: TCP
+  web:
+    port: 8000
+    hostPort: 8000
+    exposedPort: 8000
+    protocol: TCP
 experimental:
   plugins:
     bouncer:
