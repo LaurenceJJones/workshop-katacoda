@@ -1,4 +1,4 @@
-# Step 4: Install CrowdSec
+# Step 3: Install CrowdSec
 
 We can install CrowdSec using our helm chart, and the values file provided.
 

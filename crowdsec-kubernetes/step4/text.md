@@ -1,4 +1,4 @@
-# Step 5: Install the remediation component middleware
+# Step 4: Install the remediation component middleware
 
 Traefik expects a resource of “Middleware” type named “bouncer”, which we will create now.
 

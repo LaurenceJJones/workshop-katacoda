@@ -1,4 +1,4 @@
-# Step 3: Install the helloworld app
+# Step 5: Install the helloworld app
 
 We use this simple app to test the setup. It is a simple web server that returns a "Hello, World!" message with 200 status code.
 
