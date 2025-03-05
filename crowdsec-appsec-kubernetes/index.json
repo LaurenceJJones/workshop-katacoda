@@ -1,0 +1,61 @@
+{
+  "backend": {
+    "imageid": "kubernetes-kubeadm-2nodes"
+  },
+  "environment": {
+    "uilayout": "terminal",
+    "uidependencies": [
+      "/socket.io/socket.io.js",
+      "/javascripts/term.js",
+      "/javascripts/terminal-application.js"
+    ],
+    "terminals": [
+      {"name": "Attacker Host", "target": "host02"}
+    ],
+    "hideintro": false,
+    "hidefinish": false,
+    "showide": false
+  },
+  "details": {
+    "steps": [
+      {
+        "title": "Check the cluster is up and running",
+        "text": "step1/text.md"
+      },
+      {
+        "title": "Enable the Crowdsec WAF",
+        "text": "step2/text.md"
+      },
+      {
+        "title": "Update the remediation component middleware",
+        "text": "step3/text.md"
+      },
+      {
+        "title": "Test the setup",
+        "text": "step4/text.md"
+      }
+    ],
+    "assets": {
+        "host01": [
+            {"file": ".bashrc", "target": "/root/"},
+            {"file": "module2/traefik-values.yaml", "target": "/root/module2"},
+            {"file": "module2/crowdsec-values.yaml", "target": "/root/module2"},
+            {"file": "module2/bouncer-middleware.yaml", "target": "/root/module2"},
+            {"file": "module2/helloworld-ingress-values.yaml", "target": "/root/module2"},
+            {"file": "crowdsec-waf-values.yaml", "target": "/root/"},
+            {"file": "bouncer-middleware.yaml", "target": "/root/"}
+        ]
+    },
+    "intro": {
+      "courseData": "./assets/env-init.sh",
+      "text": "intro.md"
+    },
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "title": "Crowdsec WAF In a Kubernetes Cluster",
+  "description": "Learn how to set up Crowdsec WAF in a Kubernetes cluster",
+  "difficulty": "intermediate",
+  "time": "30 minutes"
+}

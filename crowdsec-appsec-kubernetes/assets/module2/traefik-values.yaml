@@ -1,0 +1,34 @@
+logs:
+  access:
+    enabled: true
+service:
+  type: NodePort
+ports:
+  traefik:
+    port: 8080
+    hostPort: 8080
+    expose:
+      default: true
+    exposedPort: 8080
+    protocol: TCP
+  web:
+    port: 8000
+    hostPort: 8000
+    exposedPort: 8000
+    protocol: TCP
+experimental:
+  plugins:
+    bouncer:
+      moduleName: github.com/maxlerebourg/crowdsec-bouncer-traefik-plugin
+      version: v1.3.5
+volumes:
+  - name: crowdsec-bouncer-tls
+    mountPath: /etc/traefik/crowdsec-certs/
+    type: secret
+additionalArguments:
+  - "--entrypoints.web.http.middlewares=traefik-bouncer@kubernetescrd"
+  - "--entrypoints.websecure.http.middlewares=traefik-bouncer@kubernetescrd"
+  - "--providers.kubernetescrd"
+ingressRoute:
+  dashboard:
+    enabled: true
