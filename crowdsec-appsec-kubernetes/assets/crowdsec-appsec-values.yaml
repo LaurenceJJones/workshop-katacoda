@@ -1,3 +1,7 @@
+tls:
+  appsec:
+    tlsClientAuth: true
+    tlsSecretName: crowdsec-appsec-tls
 appsec:
   enabled: true
   acquisitions:
