@@ -8,6 +8,8 @@ Now we have the AppSec pod running, we need to update the middleware to use the 
 cat bouncer-middleware.yaml
 ```{{exec}}
 
+We enable the AppSec module by setting `crowdsecAppsecEnabled` to `true`. 
+
 We are using crowdsecMode: none, because it works in real-time, but it queries the database for each connection. In production, we recommend stream for any substantial amount of traffic. For all the possible modes see [the plugin’s documentation](https://plugins.traefik.io/plugins/6335346ca4caa9ddeffda116/crowdsec-bouncer-traefik-plugin).
 
 ## Update the bouncer middleware
