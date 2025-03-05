@@ -55,7 +55,7 @@
       "text": "finish.md"
     }
   },
-  "title": "Crowdsec AppSec In a Kubernetes Cluster",
+  "title": "[WIP] Crowdsec AppSec In a Kubernetes Cluster",
   "description": "Learn how to set up Crowdsec AppSec in a Kubernetes cluster",
   "difficulty": "intermediate",
   "time": "30 minutes"
