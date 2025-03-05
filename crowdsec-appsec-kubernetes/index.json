@@ -49,7 +49,8 @@
     "intro": {
       "courseData": "./assets/env-init.sh",
       "text": "intro.md",
-      "background": "background.sh"
+      "background": "background.sh",
+      "foreground": "foreground.sh"
     },
     "finish": {
       "text": "finish.md"
