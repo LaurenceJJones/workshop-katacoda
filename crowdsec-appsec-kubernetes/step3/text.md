@@ -1,6 +1,6 @@
 # Step 4: Update the remediation component middleware
 
-Now we have the WAF pod running, we need to update the middleware to use the WAF.
+Now we have the AppSec pod running, we need to update the middleware to use the AppSec.
 
 ## Show the values file
 

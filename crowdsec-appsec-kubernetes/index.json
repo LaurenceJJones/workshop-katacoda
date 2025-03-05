@@ -23,7 +23,7 @@
         "text": "step1/text.md"
       },
       {
-        "title": "Enable the Crowdsec WAF",
+        "title": "Enable the Crowdsec AppSec",
         "text": "step2/text.md"
       },
       {
@@ -42,7 +42,7 @@
             {"file": "module2/crowdsec-values.yaml", "target": "/root/module2"},
             {"file": "module2/bouncer-middleware.yaml", "target": "/root/module2"},
             {"file": "module2/helloworld-ingress-values.yaml", "target": "/root/module2"},
-            {"file": "crowdsec-waf-values.yaml", "target": "/root/"},
+            {"file": "crowdsec-appsec-values.yaml", "target": "/root/"},
             {"file": "bouncer-middleware.yaml", "target": "/root/"}
         ]
     },
@@ -54,8 +54,8 @@
       "text": "finish.md"
     }
   },
-  "title": "Crowdsec WAF In a Kubernetes Cluster",
-  "description": "Learn how to set up Crowdsec WAF in a Kubernetes cluster",
+  "title": "Crowdsec AppSec In a Kubernetes Cluster",
+  "description": "Learn how to set up Crowdsec AppSec in a Kubernetes cluster",
   "difficulty": "intermediate",
   "time": "30 minutes"
 }
