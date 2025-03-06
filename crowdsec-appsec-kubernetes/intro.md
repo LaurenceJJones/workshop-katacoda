@@ -2,7 +2,7 @@
 
 ## CrowdSec AppSec in Kubernetes Workshop
 
-In this workshop, you will have a ready cluster (same state as you did in `crowdsec-kubernetes` module), you will learn how to add the Crowdsec AppSec (WAF) in this helm deployment and detect/block malicious behaviors using the CrowdSec AppSec.
+In this workshop, you will have a ready cluster (same state as you did in [Crowdsec in K8s](https://killercoda.com/iiamloz/scenario/crowdsec-kubernetes) module), you will learn how to add the Crowdsec AppSec (WAF) in this helm deployment and detect/block malicious behaviors using the CrowdSec AppSec.
 
 For the workshop, you will :
 
