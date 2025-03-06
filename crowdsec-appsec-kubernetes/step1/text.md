@@ -1,6 +1,6 @@
 # Step 1: Check the Kubernetes cluster
 
-Before starting, we can check if the Kubernetes cluster is up and running and all the previous module (crowdsec-kubernetes) work is in place.
+Before starting, we can check if the Kubernetes cluster is up and running and all the previous module (crowdsec-kubernetes) work is in place (it takes a few minutes to start).
 
 We can verify that the cluster is up and running by running the following commands:
 

@@ -14,4 +14,10 @@ appsec:
   env:
     - name: COLLECTIONS
       value: "crowdsecurity/appsec-virtual-patching crowdsecurity/appsec-generic-rules"
-  
+lapi:
+  env:
+    # For an internal test, disable the Online API
+    - name: DISABLE_ONLINE_API
+      value: "true"
+    - name: AGENTS_ALLOWED_OU
+      value: agent-ou,appsec-ou
