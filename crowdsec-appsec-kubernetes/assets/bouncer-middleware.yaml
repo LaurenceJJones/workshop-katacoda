@@ -18,3 +18,5 @@ spec:
       crowdsecAppsecHost: crowdsec-appsec-service.crowdsec:7422
       crowdsecAppsecFailureBlock: true
       crowdsecAppsecUnreachableBlock: true
+      crowdsecLapiKey: 6b71a77194327e3bf00bcef884d2688c
+
