@@ -10,6 +10,7 @@ echo "Updating api-server configuration to enable audit logging"
 yq -e -i '.spec.volumes += [{"hostPath": {"path": "/etc/kubernetes/manifests/audit-policy.yaml", "type": "File"}, "name": "audit-policy"}]' /etc/kubernetes/manifests/kube-apiserver.yaml
 yq -e -i '.spec.containers[0].volumeMounts += [{"mountPath": "/etc/kubernetes/manifests/audit-policy.yaml", "name": "audit-policy", "readOnly": true}]' /etc/kubernetes/manifests/kube-apiserver.yaml
 
+mkdir -p /tmp/k8s-audit
 yq -e -i '.spec.volumes += [{"hostPath": {"path": "/tmp/k8s-audit", "type": "DirectoryOrCreate"}, "name": "audit-log"}]' /etc/kubernetes/manifests/kube-apiserver.yaml
 yq -e -i '.spec.containers[0].volumeMounts += [{"mountPath": "/var/log/k8s-audit", "name": "audit-log"}]' /etc/kubernetes/manifests/kube-apiserver.yaml
 
