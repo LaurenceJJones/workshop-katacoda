@@ -7,7 +7,7 @@
         "foreground": "foreground.sh"
       },
       "assets": {
-        "controlplane": [
+        "host01": [
           {"file": "audit-policy.yaml", "target": "/etc/kubernetes/manifests/"}
         ]
       }
