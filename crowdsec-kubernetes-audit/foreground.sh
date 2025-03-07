@@ -10,8 +10,11 @@ echo "Updating api-server configuration to enable audit logging"
 yq -e -i '.spec.volumes += [{"hostPath": {"path": "/etc/kubernetes/manifests/audit-policy.yaml", "type": "File"}, "name": "audit-policy"}]' /etc/kubernetes/manifests/kube-apiserver.yaml
 yq -e -i '.spec.containers[0].volumeMounts += [{"mountPath": "/etc/kubernetes/manifests/audit-policy.yaml", "name": "audit-policy", "readOnly": true}]' /etc/kubernetes/manifests/kube-apiserver.yaml
 
+yq -e -i '.spec.volumes += [{"hostPath": {"path": "/tmp/k8s-audit", "type": "DirectoryOrCreate"}, "name": "audit-log"}]' /etc/kubernetes/manifests/kube-apiserver.yaml
+yq -e -i '.spec.containers[0].volumeMounts += [{"mountPath": "/var/log/k8s-audit", "name": "audit-log"}]' /etc/kubernetes/manifests/kube-apiserver.yaml
+
 yq -e -i  '.spec.containers[0].command += "--audit-policy-file=/etc/kubernetes/manifests/audit-policy.yaml"' /etc/kubernetes/manifests/kube-apiserver.yaml
-yq -e -i  '.spec.containers[0].command += "--audit-log-path=/var/log/kubernetes/audit.log"' /etc/kubernetes/manifests/kube-apiserver.yaml
+yq -e -i  '.spec.containers[0].command += "--audit-log-path=/var/log/k8s-audit/audit.log"' /etc/kubernetes/manifests/kube-apiserver.yaml
 yq -e -i  '.spec.containers[0].command += "--audit-log-maxage=30"' /etc/kubernetes/manifests/kube-apiserver.yaml
 yq -e -i  '.spec.containers[0].command += "--audit-log-maxbackup=1"' /etc/kubernetes/manifests/kube-apiserver.yaml
 yq -e -i  '.spec.containers[0].command += "--audit-log-maxsize=100"' /etc/kubernetes/manifests/kube-apiserver.yaml
