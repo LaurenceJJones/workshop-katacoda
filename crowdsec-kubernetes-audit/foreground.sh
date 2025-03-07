@@ -20,12 +20,9 @@ yq -e -i  '.spec.containers[0].command += "--audit-log-maxage=30"' /etc/kubernet
 yq -e -i  '.spec.containers[0].command += "--audit-log-maxbackup=1"' /etc/kubernetes/manifests/kube-apiserver.yaml
 yq -e -i  '.spec.containers[0].command += "--audit-log-maxsize=100"' /etc/kubernetes/manifests/kube-apiserver.yaml
 
-echo "Waiting for kube-apiserver to restart"
-
-#kubectl -n kube-system delete pod -l component=kube-apiserver
-
 while true; do
-  kubectl -n kube-system get pods -l component=kube-apiserver | grep -q "Running" && break
+  echo "Waiting for kube-apiserver to restart"
+  kubectl -n kube-system get pods -l component=kube-apiserver 2> /dev/null | grep -q "Running" && break
   sleep 5
 done
 
