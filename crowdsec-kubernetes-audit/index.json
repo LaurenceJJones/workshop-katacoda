@@ -1,0 +1,18 @@
+{
+    "title": "[WIP] Analyse K8S audit logs with CrowdSsec",
+    "description": "foo",
+    "details": {
+      "intro": {
+        "text": "intro.md",
+        "foreground": "foreground.sh"
+      },
+      "assets": {
+        "controlplane": [
+          {"file": "audit-policy.yaml", "target": "/etc/kubernetes/manifests/"}
+        ]
+      }
+    },
+    "backend": {
+      "imageid": "kubernetes-kubeadm-2nodes"
+    }
+  }

@@ -1,0 +1,1 @@
+Testing audit log configuration in k8s
