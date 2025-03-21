@@ -15,7 +15,7 @@ curl -I http://helloworld.local:8000/.env
 Now, let’s check crowdsec metrics:
 
 ```bash
-kubectl -n crowdsec exec -it $(kubectl -n crowdsec get pods -l type=lapi -o jsonpath='{.items[0].metadata.name}') -- cscli metrics show appsec
+kubectl -n crowdsec exec -it $(kubectl -n crowdsec get pods -l type=appsec -o jsonpath='{.items[0].metadata.name}') -- cscli metrics show appsec
 ```{{exec}}
 
 ## Explanation
