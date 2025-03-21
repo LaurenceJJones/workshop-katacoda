@@ -30,3 +30,4 @@ lapi:
       value: agent-ou,appsec-ou
     - name: BOUNCER_KEY_appsec
       value: "6b71a77194327e3bf00bcef884d2688c"
+
