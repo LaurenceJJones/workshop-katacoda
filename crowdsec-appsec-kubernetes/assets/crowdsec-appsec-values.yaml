@@ -1,7 +1,12 @@
 tls:
+  enabled: true
+  bouncer:
+    reflector:
+      namespaces: ["traefik"]
   appsec:
-    tlsClientAuth: true
-    tlsSecretName: crowdsec-appsec-tls
+    tlsClientAuth: false
+    reflector:
+      namespaces: ["traefik"]
 appsec:
   enabled: true
   acquisitions:
@@ -9,6 +14,8 @@ appsec:
       listen_addr: "0.0.0.0:7422"
       path: /
       appsec_config: crowdsecurity/appsec-default
+      cert_file: /etc/ssl/crowdsec-appsec-server/tls.crt
+      key_file: /etc/ssl/crowdsec-appsec-server/tls.key
       labels:
         type: appsec
   env:

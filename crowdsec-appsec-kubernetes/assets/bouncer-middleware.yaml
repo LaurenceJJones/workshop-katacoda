@@ -10,13 +10,19 @@ spec:
       crowdsecMode: none
       crowdsecLapiScheme: https
       crowdsecLapiHost: crowdsec-service.crowdsec:8080
-      crowdsecLapiTLSCertificateAuthorityFile: /etc/traefik/crowdsec-certs/ca.crt
-      crowdsecLapiTLSCertificateBouncerFile: /etc/traefik/crowdsec-certs/tls.crt
-      crowdsecLapiTLSCertificateBouncerKeyFile: /etc/traefik/crowdsec-certs/tls.key
-      # AppSec (WAF) configuration
+      crowdsecLapiTLSInsecureVerify: true
+
+      ## AppSec (WAF) configuration
       crowdsecAppsecEnabled: true
       crowdsecAppsecHost: crowdsec-appsec-service.crowdsec:7422
       crowdsecAppsecFailureBlock: true
       crowdsecAppsecUnreachableBlock: true
       crowdsecLapiKey: 6b71a77194327e3bf00bcef884d2688c
+
+      ## mTLS configuration is not supported yet in the appsec listener
+      # crowdsecLapiTLSCertificateBouncerFile: /etc/traefik/crowdsec-certs/tls.crt
+      # crowdsecLapiTLSCertificateBouncerKeyFile: /etc/traefik/crowdsec-certs/tls.key
+
+      ## CA certificate for TLS verification to AppSec not supported in the traefik plugin
+      # crowdsecLapiTLSCertificateAuthorityFile: /etc/traefik/crowdsec-certs/ca.crt
 
