@@ -1,4 +1,4 @@
-# Step 2: Configure Crowdsec
+# Step 2: Review Crowdsec configuration
 
 We'll configure crowdsec [Kubernetes audit logs datasource](https://docs.crowdsec.net/docs/next/log_processor/data_sources/kubernetes_audit) to receive the cluster audit logs over HTTP.
 
@@ -23,9 +23,3 @@ labels:
 ```
 
 Crowdsec will expose a HTTP server on port 9876 and will listen for request on the `/audit/webhook/event` path.
-
-## Upgrade the helm deployment
-
-```bash
-helm upgrade crowdsec crowdsec/crowdsec --namespace crowdsec -f crowdsec-values.yaml -f crowdsec-values-audit.yaml
-```{{exec}}

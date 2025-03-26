@@ -2,18 +2,23 @@ container_runtime: containerd
 agent:
   resources:
     requests:
-      cpu: 100m
-      memory: 100Mi
+      memory: 200Mi
     limits:
-      cpu: 100m
-      memory: 100Mi
-  acquisition:
-    # The namespace where the pod is located
-    - namespace: traefik
-      # The pod name
-      podName: traefik-*
-      # as in crowdsec configuration, we need to specify the program name to find a matching parser
-      program: traefik
+      memory: 200Mi
+  additionalAcquisition:
+   - source: k8s-audit
+     listen_addr: 0.0.0.0
+     listen_port: 9876
+     webhook_path: /audit/webhook/event
+     labels:
+       type: k8s-audit
+  service:
+    type: ClusterIP
+    ports:
+      - port: 9876
+        targetPort: 9876
+        protocol: TCP
+        name: audit-wehbook
   env:
     - name: PARSERS
       value: "crowdsecurity/cri-logs"
@@ -33,10 +38,8 @@ lapi:
       enabled: false
   resources:
     requests:
-      cpu: 100m
       memory: 100Mi
     limits:
-      cpu: 100m
       memory: 100Mi
   env:
     # For an internal test, disable the Online API
