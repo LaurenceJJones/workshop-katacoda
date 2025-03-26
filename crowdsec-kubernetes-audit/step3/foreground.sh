@@ -8,18 +8,15 @@ echo "Updating api-server configuration to enable audit logging"
 
 
 cp /root/audit-policy.yaml /etc/kubernetes/manifests/audit-policy.yaml
+cp /root/audit-webhook.yaml /etc/kubernetes/manifests/audit-webhook.yaml
+
 yq -e -i '.spec.volumes += [{"hostPath": {"path": "/etc/kubernetes/manifests/audit-policy.yaml", "type": "File"}, "name": "audit-policy"}]' /etc/kubernetes/manifests/kube-apiserver.yaml
 yq -e -i '.spec.containers[0].volumeMounts += [{"mountPath": "/etc/kubernetes/manifests/audit-policy.yaml", "name": "audit-policy", "readOnly": true}]' /etc/kubernetes/manifests/kube-apiserver.yaml
 
-mkdir -p /tmp/k8s-audit
-yq -e -i '.spec.volumes += [{"hostPath": {"path": "/tmp/k8s-audit", "type": "DirectoryOrCreate"}, "name": "audit-log"}]' /etc/kubernetes/manifests/kube-apiserver.yaml
-yq -e -i '.spec.containers[0].volumeMounts += [{"mountPath": "/var/log/k8s-audit", "name": "audit-log"}]' /etc/kubernetes/manifests/kube-apiserver.yaml
+yq -e -i '.spec.volumes += [{"hostPath": {"path": "/etc/kubernetes/manifests/audit-webhook.yaml", "type": "File"}, "name": "audit-webhook"}]' /etc/kubernetes/manifests/kube-apiserver.yaml
+yq -e -i '.spec.containers[0].volumeMounts += [{"mountPath": "/etc/kubernetes/manifests/audit-webhook.yaml", "name": "audit-webhook", "readOnly": true}]' /etc/kubernetes/manifests/kube-apiserver.yaml
 
-yq -e -i  '.spec.containers[0].command += "--audit-policy-file=/etc/kubernetes/manifests/audit-policy.yaml"' /etc/kubernetes/manifests/kube-apiserver.yaml
-yq -e -i  '.spec.containers[0].command += "--audit-log-path=/var/log/k8s-audit/audit.log"' /etc/kubernetes/manifests/kube-apiserver.yaml
-yq -e -i  '.spec.containers[0].command += "--audit-log-maxage=30"' /etc/kubernetes/manifests/kube-apiserver.yaml
-yq -e -i  '.spec.containers[0].command += "--audit-log-maxbackup=1"' /etc/kubernetes/manifests/kube-apiserver.yaml
-yq -e -i  '.spec.containers[0].command += "--audit-log-maxsize=100"' /etc/kubernetes/manifests/kube-apiserver.yaml
+yq -e -i  '.spec.containers[0].command += "--audit-webhook-config-file=/etc/kubernetes/manifests/audit-webhook.yaml"' /etc/kubernetes/manifests/kube-apiserver.yaml
 
 while true; do
   echo "Waiting for kube-apiserver to restart"

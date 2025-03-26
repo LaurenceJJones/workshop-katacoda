@@ -25,7 +25,8 @@
       "assets": {
         "host01": [
           {"file": "audit-policy.yaml", "target": "/root/"},
-          {"file": "crowdsec-values.yaml", "target": "/root/"}
+          {"file": "crowdsec-values.yaml", "target": "/root/"},
+          {"file": "audit-webhook.yaml", "target": "/root/"}
         ]
       }
     },
