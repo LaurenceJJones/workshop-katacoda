@@ -15,7 +15,7 @@ agent:
      labels:
        type: k8s-audit
   service:
-    type: ClusterIP
+    type: NodePort
     ports:
       - port: 9876
         targetPort: 9876
