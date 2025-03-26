@@ -19,7 +19,7 @@ agent:
     ports:
       - port: 9876
         targetPort: 9876
-        nodePort: 42420
+        nodePort: 30000
         protocol: TCP
         name: audit-wehbook
   env:

@@ -3,7 +3,7 @@ kind: Config
 clusters:
 - name: kube-auditing
   cluster:
-    server: http://127.0.0.1:42420/audit/webhook/event
+    server: http://127.0.0.1:30000/audit/webhook/event
 contexts:
 - context:
     cluster: kube-auditing
