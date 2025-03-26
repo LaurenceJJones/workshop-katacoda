@@ -2,9 +2,11 @@ container_runtime: containerd
 agent:
   resources:
     requests:
-      memory: 200Mi
+      cpu: 100m
+      memory: 100Mi
     limits:
-      memory: 200Mi
+      cpu: 100m
+      memory: 100Mi
   additionalAcquisition:
    - source: k8s-audit
      listen_addr: 0.0.0.0
@@ -38,8 +40,10 @@ lapi:
       enabled: false
   resources:
     requests:
+      cpu: 100m
       memory: 100Mi
     limits:
+      cpu: 100m
       memory: 100Mi
   env:
     # For an internal test, disable the Online API
