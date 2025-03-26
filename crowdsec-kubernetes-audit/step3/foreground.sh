@@ -16,6 +16,7 @@ yq -e -i '.spec.containers[0].volumeMounts += [{"mountPath": "/etc/kubernetes/ma
 yq -e -i '.spec.volumes += [{"hostPath": {"path": "/etc/kubernetes/manifests/audit-webhook.yaml", "type": "File"}, "name": "audit-webhook"}]' /etc/kubernetes/manifests/kube-apiserver.yaml
 yq -e -i '.spec.containers[0].volumeMounts += [{"mountPath": "/etc/kubernetes/manifests/audit-webhook.yaml", "name": "audit-webhook", "readOnly": true}]' /etc/kubernetes/manifests/kube-apiserver.yaml
 
+yq -e -i  '.spec.containers[0].command += "--audit-policy-file=/etc/kubernetes/manifests/audit-policy.yaml"' /etc/kubernetes/manifests/kube-apiserver.yaml
 yq -e -i  '.spec.containers[0].command += "--audit-webhook-config-file=/etc/kubernetes/manifests/audit-webhook.yaml"' /etc/kubernetes/manifests/kube-apiserver.yaml
 
 while true; do
