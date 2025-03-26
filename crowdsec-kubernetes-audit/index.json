@@ -3,12 +3,28 @@
     "description": "foo",
     "details": {
       "intro": {
-        "text": "intro.md",
-        "foreground": "foreground.sh"
+        "text": "intro.md"
       },
+      "steps": [
+        {
+          "title": "Step 1: Deploy a Kubernetes cluster",
+          "text": "step1/text.md"
+        },
+        {
+          "title": "Step 2: Configure CrowdSec",
+          "text": "step2/text.md"
+        },
+        {
+          "title": "Step 3: Deploy the audit policy",
+          "text": "step3/text.md",
+          "foreground": "foreground.sh"
+        }
+      ],
       "assets": {
         "host01": [
-          {"file": "audit-policy.yaml", "target": "/etc/kubernetes/manifests/"}
+          {"file": "audit-policy.yaml", "target": "/root/"},
+          {"file": "crowdsec-values.yaml", "target": "/root/"},
+          {"file": "crowdsec-values-audit.yaml", "target": "/root/"}
         ]
       }
     },

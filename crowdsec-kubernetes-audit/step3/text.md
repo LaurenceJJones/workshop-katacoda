@@ -1,0 +1,1 @@
+# Step 3: Enable audit logging in k8s
