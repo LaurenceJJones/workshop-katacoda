@@ -8,7 +8,9 @@
       "steps": [
         {
           "title": "Step 1: Deploy a Kubernetes cluster",
-          "text": "step1/text.md"
+          "text": "step1/text.md",
+          "foreground": "step1/foreground.sh",
+          "background": "step1/background.sh"
         },
         {
           "title": "Step 2: Configure CrowdSec",
@@ -17,7 +19,7 @@
         {
           "title": "Step 3: Deploy the audit policy",
           "text": "step3/text.md",
-          "foreground": "foreground.sh"
+          "foreground": "step3/foreground.sh"
         }
       ],
       "assets": {
