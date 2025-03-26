@@ -7,14 +7,13 @@ agent:
     limits:
       cpu: 100m
       memory: 100Mi
-  additionalAcquisition:
-   - |
-    source: k8s-audit
-    listen_addr: 0.0.0.0
-    listen_port: 9876
-    webhook_path: /audit/webhook/event
-    labels:
-      type: k8s-audit
+  acquisitions:
+   - source: k8s-audit
+     listen_addr: 0.0.0.0
+     listen_port: 9876
+     webhook_path: /audit/webhook/event
+     labels:
+       type: k8s-audit
   env:
     - name: PARSERS
       value: "crowdsecurity/cri-logs"
