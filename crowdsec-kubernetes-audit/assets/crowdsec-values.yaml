@@ -7,18 +7,26 @@ agent:
     limits:
       cpu: 100m
       memory: 100Mi
-  acquisition:
-    # The namespace where the pod is located
-    - namespace: traefik
-      # The pod name
-      podName: traefik-*
-      # as in crowdsec configuration, we need to specify the program name to find a matching parser
-      program: traefik
+  additionalAcquisition:
+   - source: k8s-audit
+     listen_addr: 0.0.0.0
+     listen_port: 9876
+     webhook_path: /audit/webhook/event
+     labels:
+       type: k8s-audit
+  service:
+    type: NodePort
+    ports:
+      - port: 9876
+        targetPort: 9876
+        nodePort: 30000
+        protocol: TCP
+        name: audit-wehbook
   env:
     - name: PARSERS
       value: "crowdsecurity/cri-logs"
     - name: COLLECTIONS
-      value: "crowdsecurity/traefik"
+      value: "crowdsecurity/traefik crowdsecurity/k8s-audit"
     # When testing, allow bans on private networks
     - name: DISABLE_PARSERS
       value: "crowdsecurity/whitelists"

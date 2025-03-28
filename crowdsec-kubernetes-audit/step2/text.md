@@ -1,12 +1,12 @@
-# Step 2: Configure Crowdsec
+# Step 2: Review Crowdsec configuration
 
-We'll configure crowdsec [Kubernetes audit logs datasource](https://docs.crowdsec.net/docs/next/log_processor/data_sources/kubernetes_audit) to receive the cluster audit logs over HTTP.
+Crowdsec has been automatically configured to use the [Kubernetes audit logs datasource](https://docs.crowdsec.net/docs/next/log_processor/data_sources/kubernetes_audit) to receive the cluster audit logs over HTTP.
 
 ```bash
 cat crowdsec-values.yaml
 ```{{exec}}
 
-The main changes in this files are:
+The most relevant parts of this file are:
  - Installing the [k8s-audit](https://app.crowdsec.net/hub/author/crowdsecurity/collections/k8s-audit) collection, which contains the log parser and the various detection scenarios.
  - Configure the acquisition to expose a webhook to receive the audit logs.
  - Expose the webhook with a service
@@ -22,10 +22,17 @@ labels:
   type: k8s-audit
 ```
 
-Crowdsec will expose a HTTP server on port 9876 and will listen for request on the `/audit/webhook/event` path.
+We also expose a `NodePort` service:
+```yaml
+  service:
+    type: NodePort
+    ports:
+      - port: 9876
+        targetPort: 9876
+        nodePort: 30000
+        protocol: TCP
+        name: audit-wehbook
+```
 
-## Upgrade the helm deployment
-
-```bash
-helm upgrade crowdsec crowdsec/crowdsec --namespace crowdsec -f crowdsec-values.yaml -f crowdsec-values-audit.yaml
-```{{exec}}
+We are using `NodePort` here to avoid needing to resolve the service FQDN from inside the API server (as it's not possible).
+Using `NodePort` allows us to configure the webhook target (in the next step) to `localhost`.
