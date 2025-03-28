@@ -26,5 +26,12 @@ kubectl apply -f priv-pod.yaml
 Now that our privileged pod has been created, we can check crowdsec alerts (you may need to run the command a few times, as kubernetes buffers the audit logs before sending them to crowdsec):
 
 ```bash
-kubectl -n crowdsec exec -it $(kubectl -n crowdsec get pods -l type=agent -o jsonpath='{.items[0].metadata.name}') -- cscli metrics
+kubectl -n crowdsec exec -it $(kubectl -n crowdsec get pods -l type=agent -o jsonpath='{.items[0].metadata.name}') -- cscli alerts list
+```{{exec}}
+
+You'll also see other alerts related to the exec commands we just performed.
+
+You can get more details about each alerts with:
+```bash
+kubectl -n crowdsec exec -it $(kubectl -n crowdsec get pods -l type=agent -o jsonpath='{.items[0].metadata.name}') -- cscli alerts inspect -d <ALERT_ID>
 ```{{exec}}

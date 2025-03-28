@@ -6,7 +6,7 @@ Crowdsec has been automatically configured to use the [Kubernetes audit logs dat
 cat crowdsec-values.yaml
 ```{{exec}}
 
-The main bits in this files are:
+The most relevant parts of this file are:
  - Installing the [k8s-audit](https://app.crowdsec.net/hub/author/crowdsecurity/collections/k8s-audit) collection, which contains the log parser and the various detection scenarios.
  - Configure the acquisition to expose a webhook to receive the audit logs.
  - Expose the webhook with a service
