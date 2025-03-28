@@ -14,19 +14,23 @@
         },
         {
           "title": "Step 2: Configure CrowdSec",
-          "text": "step2/text.md"
+          "text": "step2/text.md",
+          "foreground": "step2/foreground.sh",
+          "background": "step2/background.sh"
         },
         {
           "title": "Step 3: Deploy the audit policy",
           "text": "step3/text.md",
-          "foreground": "step3/foreground.sh"
+          "foreground": "step3/foreground.sh",
+          "background": "step3/background.sh"
         }
       ],
       "assets": {
         "host01": [
           {"file": "audit-policy.yaml", "target": "/root/"},
           {"file": "crowdsec-values.yaml", "target": "/root/"},
-          {"file": "audit-webhook.yaml", "target": "/root/"}
+          {"file": "audit-webhook.yaml", "target": "/root/"},
+          {"file": "priv-pod.yaml", "target": "/root/"}
         ]
       }
     },

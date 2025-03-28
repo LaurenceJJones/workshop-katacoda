@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: test-privileged-pod
+spec:
+  replicas: 1
+  spec:
+    containers:
+    - name: test_privileged_pod
+      image: ubuntu:latest
+      securityContext:
+        privileged: true
+      command: ["/bin/sleep", "3650d"]
+      resources:
+        requests:
+          cpu: 100m
+          memory: 100Mi
+        limits:
+          cpu: 100m
+          memory: 100Mi
