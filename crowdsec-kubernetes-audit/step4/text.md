@@ -1,6 +1,6 @@
 # Step 4: Generate an alert
 
-You can check that crowdsec is reading the audit logs properly:
+You can check that crowdsec is reading the audit logs properly (as the auditing was just enabled, it may take a few attempts before anything is shown):
 ```bash
 kubectl -n crowdsec exec -it $(kubectl -n crowdsec get pods -l type=agent -o jsonpath='{.items[0].metadata.name}') -- cscli metrics
 ```{{exec}}
