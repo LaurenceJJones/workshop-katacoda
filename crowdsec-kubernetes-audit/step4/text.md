@@ -20,7 +20,7 @@ cat priv-pod.yaml
 ```{{exec}}
 
 ```bash
-kubectl apply -f priv-prod.yaml
+kubectl apply -f priv-pod.yaml
 ```{{exec}}
 
 Now that our privileged pod has been created, we can check crowdsec alerts (you may need to run the command a few times, as kubernetes buffers the audit logs before sending them to crowdsec):

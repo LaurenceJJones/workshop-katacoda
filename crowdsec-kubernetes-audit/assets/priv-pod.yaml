@@ -1,20 +1,27 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: test-privileged-pod
+  name: priv-pod
 spec:
-  replicas: 1
-  spec:
-    containers:
-    - name: test_privileged_pod
-      image: ubuntu:latest
-      securityContext:
-        privileged: true
-      command: ["/bin/sleep", "3650d"]
-      resources:
-        requests:
-          cpu: 100m
-          memory: 100Mi
-        limits:
-          cpu: 100m
-          memory: 100Mi
+  selector:
+    matchLabels:
+      app: priv-pod
+  replicas: 1 # tells deployment to run 1 pods matching the template
+  template: # create pods using pod definition in this template
+    metadata:
+      labels:
+        app: priv-pod
+    spec:
+      containers:
+      - name: priv-pod
+        image: ubuntu:latest
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+          limits:
+            cpu: 100m
+            memory: 100Mi
+        securityContext:
+          privileged: true
+        command: ["/bin/bash", "-c", "sleep 100000"]

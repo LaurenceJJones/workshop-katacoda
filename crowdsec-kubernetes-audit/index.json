@@ -23,6 +23,10 @@
           "text": "step3/text.md",
           "foreground": "step3/foreground.sh",
           "background": "step3/background.sh"
+        },
+        {
+          "title": "Step 4: Test everything",
+          "text": "step4/text.md"
         }
       ],
       "assets": {
