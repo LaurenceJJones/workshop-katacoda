@@ -1,6 +1,6 @@
 {
-    "title": "[WIP] Analyse K8S audit logs with CrowdSsec",
-    "description": "foo",
+    "title": "Analyse K8S audit logs with CrowdSsec",
+    "description": "Learn how to configure CrowdSec to analyze Kubernetes audit logs.",
     "details": {
       "intro": {
         "text": "intro.md"
