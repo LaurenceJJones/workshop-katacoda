@@ -44,10 +44,10 @@ We can now try our requests.
 First, we can confirm a request on `/` is still blocked:
 
 ```
-curl -I localhost/?a=<script>alert(42)</script>
+curl -I "localhost/?a=<script>alert(42)</script>"
 ```{{execute T1}}
 
 If we make the same request on `/admin`, it will be allowed:
 ```
-curl -I localhost/admin/?a=<script>alert(42)</script>
+curl -I "localhost/admin/?a=<script>alert(42)</script>"
 ```{{execute T1}}

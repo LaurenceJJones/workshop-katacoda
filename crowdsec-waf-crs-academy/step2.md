@@ -2,7 +2,7 @@ Now, it's time to check if everything was setup properly.
 
 Let's simulate an XSS exploitation attempt:
 ```
-curl -I localhost/?a=<script>alert(42)</script>
+curl -I "localhost/?a=<script>alert(42)</script>"
 ```{{execute T1}}
 
 The request was not blocked !

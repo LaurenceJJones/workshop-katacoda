@@ -25,7 +25,7 @@ systemctl restart crowdsec
 Let's try the same request again:
 
 ```
-curl -I localhost/?a=<script>alert(42)</script>
+curl -I "localhost/?a=<script>alert(42)</script>"
 ```{{execute T1}}
 
 We've been blocked !
