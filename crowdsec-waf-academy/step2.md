@@ -4,11 +4,11 @@ First, we'll need to install some rules to detect malicious traffic.
 
 In this section, we will be using virtual patching rules: rules that detect specific vulnerabilities with a low-to-none false positive rate.
 
-`cscli collections install crowdsecurity/appsec-virtual-patching`{{execute T1}}
+`cscli collections install crowdsecurity/appsec-virtual-patching crowdsecurity/appsec-generic-rules`{{execute T1}}
 
 Now that we have installed the collection, we can inspect it to see its content:
 
-`cscli collections inspect crowdsecurity/appsec-virtual-patching`{{execute T1}}
+`cscli collections inspect crowdsecurity/appsec-virtual-patching --no-metrics`{{execute T1}}
 
 As you can see, the collection comes with various rules, appsec configs, parsers and scenarios.
 
