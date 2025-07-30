@@ -1,0 +1,48 @@
+{
+  "backend": {
+    "imageid": "ubuntu-4GB"
+  },
+  "files": [
+    "App"
+  ],
+  "environment": {
+    "uilayout": "terminal",
+    "uidependencies": [
+      "/socket.io/socket.io.js",
+      "/javascripts/term.js",
+      "/javascripts/terminal-application.js"
+    ],
+    "terminals": [
+      {"name": "Attacker Host", "target": "host02"}
+    ],
+    "hideintro": false,
+    "hidefinish": false,
+    "showide": false
+  },
+  "details": {
+    "steps": [
+      {
+        "title": "Install CRS",
+        "text": "step1.md"
+      },
+      {
+        "title": "Out of Band mode",
+        "text": "step2.md"
+      },
+      {
+        "title": "In Band mode",
+        "text": "step3.md"
+      },
+      {
+        "title": "Disable rules at runtime",
+        "text": "step4.md"
+      }
+    ],
+    "intro": {
+      "courseData": "env-init.sh",
+      "text": "intro.md"
+    }
+  },
+  "title": "Crowdsec WAF Workshop",
+  "description": "Learn how to setup CrowdSec Application Security Component and secure your webserver"
+}
