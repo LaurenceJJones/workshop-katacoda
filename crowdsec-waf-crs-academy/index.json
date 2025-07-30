@@ -43,6 +43,6 @@
       "text": "intro.md"
     }
   },
-  "title": "Crowdsec WAF Workshop",
-  "description": "Learn how to setup CrowdSec Application Security Component and secure your webserver"
+  "title": "Crowdsec WAF Workshop - CRS",
+  "description": "Learn how to setup the Crowdsec WAF with the CRS ruleset in Out of Band and In Band mode"
 }
