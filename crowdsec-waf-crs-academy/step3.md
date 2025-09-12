@@ -1,16 +1,12 @@
-Now, we will configure the CRS in in-band mode, meaning they can actually block requests.
+The hub also provides a blocking version of the CRS.
 
-First thing to do is to create a new appsec config that will load them in in-band:
+As usual, it can be installed with `cscli`:
+
 ```
-cat > /etc/crowdsec/appsec-configs/crs-blocking.yaml << EOF
-name: custom/blocking-crs
-default_remediation: ban
-inband_rules:
- - crowdsecurity/crs
-EOF
+cscli collections install crowdsecurity/appsec-crs-inband
 ```{{execute T1}}
 
-And tell crowdsec to use this appsec-config instead:
+Update the acquisition config to load this appsec-config instead:
 
 ```
 sed -i s@crowdsecurity/crs@custom/blocking-crs@ /etc/crowdsec/acquis.d/appsec.yaml

@@ -14,7 +14,7 @@ There are 4 types of hooks:
  - post_eval
  - on_match
 
-They will be explained in more details in the next module, for now, we'll just use the `pre_eval` hook.
+For now, we'll just use the `pre_eval` hook.
 
 It is called just before a request is processed by the WAF.
 
