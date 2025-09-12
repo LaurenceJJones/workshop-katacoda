@@ -20,9 +20,10 @@ It is called just before a request is processed by the WAF.
 
 Let's say our website has an admin panel, and the CRS generate false positive matches because some request look like they could be XSS attempt.
 
-Let's add the following configuration to our custom appsec config:
+Let's create a new appsec config with our rule exclusion:
 ```
-cat >> /etc/crowdsec/appsec-configs/crs-blocking.yaml << EOF
+cat >> /etc/crowdsec/appsec-configs/crs-exclusion.yaml << EOF
+name: custom/crs-exclusion
 pre_eval:
  - filter: IsInBand == true && req.URL.Path startsWith "/admin/"
    apply:
@@ -33,6 +34,18 @@ EOF
 The hook is composed of 2 elements:
  - a filter: If the filter returns `true`, the action will be evaluated
  - one or more action: Here we are removing all rules that have the tag `attack-xss`. This tag is specific to the CRS.
+
+Add it to the acquisition:
+```
+cat > /etc/crowdsec/acquis.d/appsec.yaml << EOF
+source: appsec
+appsec_configs:
+ - crowdsecurity/crs-inband
+ - custom/crs-exclusion
+labels:
+  type: appsec
+EOF
+```{{execute T1}}
 
 We can restart crowdsec:
 ```
