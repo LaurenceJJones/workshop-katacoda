@@ -9,7 +9,7 @@ cscli collections install crowdsecurity/appsec-crs-inband
 Update the acquisition config to load this appsec-config instead:
 
 ```
-sed -i s@crowdsecurity/crs@custom/blocking-crs@ /etc/crowdsec/acquis.d/appsec.yaml
+sed -i s@crowdsecurity/crs@crowdsecurity/blocking-crs@ /etc/crowdsec/acquis.d/appsec.yaml
 ```{{execute T1}}
 
 Restart crowdsec:
