@@ -4,10 +4,10 @@ We can try to simulate an attack and verify that the attacker is blocked.
 
 ## Simulate an attack
 
-To test Crowdsec detection, we can simulate an attack by using nikto:
+To test Crowdsec detection, we can simulate an attack by using the bash attack emulator:
 
 ```bash
-nikto -host http://helloworld.local:8000
+attack-emulator web-scan http://helloworld.local:8000
 ```{{exec}}
 
 ## Verify the detection
