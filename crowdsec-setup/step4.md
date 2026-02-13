@@ -10,15 +10,15 @@ Let's try to attack our host from another host. To do this, open a new terminal 
 
 `ssh node01`{{exec}}
 
-Once we are connected to the attacker host and you have to install the tools needed to preform ssh and web based attacks:
+Once we are connected to the attacker host, verify the attack emulator is available:
 
-`apt install -y nikto hydra`{{exec}}
+`attack-emulator --help`{{exec}}
 
 ## SSH attacks
 
 Firstly we will test iptables bouncer and ssh detection:
 
-`hydra -l admin -x 1:1:a controlplane ssh`{{exec}}
+`attack-emulator ssh-bruteforce controlplane admin 26`{{exec}}
 
 Whilst the program is running return to original tab to see if crowdsec is detecting the ssh attacks. You can also run `cscli`{{}} to see the active decision.
 
@@ -34,13 +34,13 @@ tail -f /var/log/crowdsec.log
 
 ## Web attacks
 
-Once the ssh decision has been removed. Return to the attacker tab, we will run nikto web scanner. However before running this we will do a little trick to forward a local port to the control plane (so we can see the block screen). The below command must be run on node01 NOT the control plane.
+Once the ssh decision has been removed. Return to the attacker tab, we will run a web scan emulation. However before running this we will do a little trick to forward a local port to the control plane (so we can see the block screen). The below command must be run on node01 NOT the control plane.
 
 `ssh -L 0.0.0.0:8080:controlplane:80 localhost`{{exec interrupt}}
 
-Once connected we can attack the website with `nikto`{{}}: 
+Once connected we can attack the website with the emulator: 
 
-`nikto -h http://controlplane`{{exec}}
+`attack-emulator web-scan http://controlplane`{{exec}}
 
 Then we can check if the attack has been detect by going to this [LINK]({{TRAFFIC_HOST2_8080}})
 
