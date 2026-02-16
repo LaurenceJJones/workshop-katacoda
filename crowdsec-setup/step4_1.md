@@ -1,6 +1,6 @@
 ## Web attacks
 
-The firewall bouncer has been disabled automatically for this step (same automation pattern as the whitelist removal). This lets us observe web remediation behavior from the NGINX bouncer.
+The firewall bouncer has been disabled automatically for this step. This lets us observe web remediation behavior from the NGINX bouncer.
 
 Return to the attacker tab and run a web scan emulation. Before running it, forward a local port to the control plane so we can see the block screen. Run this on `node01` (not on the control plane):
 
