@@ -1,6 +1,6 @@
 ## Install Bash Completion
 
-If you want to access all options easier and faster, just install the bash completion:
+If you want faster and easier access to all options, install bash completion:
 
 `cscli completion bash | tee /etc/bash_completion.d/cscli`{{execute T1}}
 
@@ -14,11 +14,11 @@ Test it out by typing:
 
 Let's check out and run some useful commands with the CrowdSec CLI `cscli`{{}}.
 
-To get an overview of all options, just run the command:
+To get an overview of all options, run:
 
 `cscli -h`{{execute T1}}
 
-Cscli commands are built to be self expressive the syntax is
+`cscli` commands are designed to be self-explanatory. The syntax is:
 
 `cscli <command> <subcommand>`{{}}
 
@@ -28,7 +28,7 @@ Example `cscli parsers list`{{exec}} lists all locally installed parsers, howeve
 
 ## Collections examples
 
-Here a few collection examples to get you used to the syntax, collections command is commonly used as it allows you to update parsers/scenarios with one command.
+Here are a few collection examples to get you used to the syntax. The collections command is commonly used because it lets you update parsers/scenarios with one command.
 
 `cscli collections list`{{exec}} List local install collections
 

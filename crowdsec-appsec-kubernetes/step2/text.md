@@ -1,4 +1,4 @@
-# Step 2: Enable the Crowdsec AppSec
+# Step 2: Enable CrowdSec AppSec
 
 We can install traefik using the official helm chart, and the values file provided.
 

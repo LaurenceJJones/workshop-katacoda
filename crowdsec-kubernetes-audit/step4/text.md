@@ -1,6 +1,6 @@
 # Step 4: Generate an alert
 
-You can check that crowdsec is reading the audit logs properly (as the auditing was just enabled, it may take a few attempts before anything is shown):
+You can check that CrowdSec is reading the audit logs properly (as auditing was just enabled, it may take a few attempts before anything appears):
 ```bash
 kubectl -n crowdsec exec -it $(kubectl -n crowdsec get pods -l type=agent -o jsonpath='{.items[0].metadata.name}') -- cscli metrics
 ```{{exec}}
@@ -23,7 +23,7 @@ cat priv-pod.yaml
 kubectl apply -f priv-pod.yaml
 ```{{exec}}
 
-Now that our privileged pod has been created, we can check crowdsec alerts (you may need to run the command a few times, as the pod will take a few seconds to be created and kubernetes buffers the audit logs before sending them to crowdsec):
+Now that our privileged pod has been created, we can check CrowdSec alerts (you may need to run the command a few times, as the pod takes a few seconds to start and Kubernetes buffers audit logs before sending them to CrowdSec):
 
 ```bash
 kubectl -n crowdsec exec -it $(kubectl -n crowdsec get pods -l type=agent -o jsonpath='{.items[0].metadata.name}') -- cscli alerts list
@@ -31,7 +31,7 @@ kubectl -n crowdsec exec -it $(kubectl -n crowdsec get pods -l type=agent -o jso
 
 You'll also see other alerts related to the exec commands we just performed.
 
-You can get more details about each alerts with:
+You can get more details about each alert with:
 ```bash
 kubectl -n crowdsec exec -it $(kubectl -n crowdsec get pods -l type=agent -o jsonpath='{.items[0].metadata.name}') -- cscli alerts inspect -d <ALERT_ID>
 ```{{exec}}

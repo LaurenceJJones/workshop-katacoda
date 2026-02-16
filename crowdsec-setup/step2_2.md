@@ -1,4 +1,4 @@
-Crowdsec has the ability to process "cold" logs. This can be useful if you wish to know what crowdsec could of detected in the moment or to point out IP's to investigate if you are brought in to investigate a breach.
+CrowdSec can process "cold" logs. This is useful if you want to know what CrowdSec could have detected at the time, or to highlight IPs to investigate when responding to a breach.
 
 ```
 crowdsec -dsn file:///root/pwn.log --type nginx -no-api

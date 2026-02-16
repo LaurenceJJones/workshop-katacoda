@@ -1,6 +1,6 @@
 ## Scenario
 
-You are a newly employed SOC analyst at Blueteam INC. You have been tasked with investigating a breach at Marys Farm. You will be using the ELK stack to analyze the logs. Your manager has asked you to investigate the breach and determine the initial compromised location. So you must generate a report that includes the following:
+You are a newly employed SOC analyst at Blueteam INC. You have been tasked with investigating a breach at Mary's Farm. You will use the ELK stack to analyze logs. Your manager has asked you to investigate the breach and determine the initial point of compromise. Your report must include:
 
 - The initial compromised location
     - Include metadata about the attack
@@ -13,18 +13,18 @@ You are a newly employed SOC analyst at Blueteam INC. You have been tasked with 
 You can copy the points above and use them as a guide for your report.
 ## Introduction to the breach
 
-Marys Farm has reached out to us after they have been contacted by a hacker that claims to have breached their network and stolen confidential data. They have provided the company with a sample of the data they have stolen to show it is legitimate. Marys Farm have informed us the sample data shown **MUST** have been taken from their wordpress eCommerce site. They have informed us that the hacker has threatened to release the data to the public if they do not pay a ransom of 1 Bitcoin.
+Mary's Farm reached out after being contacted by a hacker who claims to have breached their network and stolen confidential data. The attacker provided a sample to prove the breach. Mary's Farm informed us that the sample data **MUST** have come from their WordPress eCommerce site. The attacker has threatened to release the data publicly unless they are paid a 1 Bitcoin ransom.
 
-Marys Farm have informed us they will not pay the ransom and have asked us to investigate the breach. Our team have exported their web server, firewall and SSH.
+Mary's Farm will not pay the ransom and has asked us to investigate the breach. Our team has exported their web server, firewall, and SSH logs.
 
-We will be using a pre-configured ELK stack that has been setup for us.
+We will use a pre-configured ELK stack that has already been set up for us.
 
 ## Accessing the ELK stack
 
-The ELK stack has been setup for us and is available at the following [URL]({{TRAFFIC_HOST1_5601}})
+The ELK stack is available at [URL]({{TRAFFIC_HOST1_5601}}).
 
 The ELK stack has been configured with the following credentials:
 - user: elastic
 - password: crowdsec
 
-**The setup can take sometime so if you get 502 gateway errors, please wait a few minutes and try again.**
+**The setup can take some time. If you get 502 gateway errors, wait a few minutes and try again.**
