@@ -15,7 +15,17 @@ case \"\$mode\" in
     user=\"\${2:-admin}\"
     attempts=\"\${3:-26}\"
     askpass=\"\$(mktemp)\"
-    trap 'rm -f \"\$askpass\"' EXIT
+    cleanup() {
+      rm -f \"\$askpass\"
+    }
+    handle_signal() {
+      echo \"SSH bruteforce emulation interrupted by \$1\" >&2
+      exit \"\$2\"
+    }
+    trap cleanup EXIT
+    trap 'handle_signal SIGINT 130' SIGINT
+    trap 'handle_signal SIGTERM 143' SIGTERM
+    trap 'handle_signal SIGTRAP 133' SIGTRAP
     cat >\"\$askpass\" <<'AP'
 #!/usr/bin/env bash
 printf '%s\n' \"\${ATTACK_PASSWORD:-invalid}\"
@@ -34,7 +44,43 @@ AP
     ;;
   web-scan)
     base_url=\"\${1:-http://controlplane}\"
-    for path in / /admin /phpinfo.php /server-status /.env /.git/config '/?id=1%20OR%201=1--' '/?q=%3Cscript%3Ealert(1)%3C/script%3E' '/index.php?page=../../../../etc/passwd'; do
+    admin_list_url=\"https://raw.githubusercontent.com/crowdsecurity/sec-lists/master/web/admin_interfaces.txt\"
+    paths=()
+    mapfile -t paths < <(
+      curl -fsSL \"\$admin_list_url\" 2>/dev/null | sed -e 's/\\r$//' -e '/^[[:space:]]*#/d' -e '/^[[:space:]]*$/d'
+    ) || true
+    if [ \"\${#paths[@]}\" -eq 0 ]; then
+      paths=(
+        \"/admin\"
+        \"/manager\"
+        \"/phpmyadmin\"
+        \"/pma\"
+        \"/wp-admin\"
+        \"/wp-login\"
+        \"/phpinfo\"
+        \"/boaform/\"
+        \"/kcfinder/upload.php\"
+        \"/+cscoe+/\"
+        \"/dana-na/\"
+        \"/repeater.php\"
+        \"/sitecore/admin/login.aspx\"
+        \"/sitecore/login/default.aspx\"
+        \"/sitecore/admin/cache.aspx\"
+        \"/solr/\"
+        \"/sphider/admin/admin.php\"
+        \"/sitefinity/authenticate/swt\"
+        \"/scriptcase/devel/iface/\"
+        \"/scriptcase/prod/lib/php/\"
+        \"/web/database/manager\"
+        \"/sfmc/login\"
+        \"/dms/out/out.login.php\"
+        \"/rsso/admin/\"
+        \"/admin/login_uid.php\"
+        \"/remote/login\"
+        \"/commandcenter/restservlet/\"
+      )
+    fi
+    for path in \"\${paths[@]}\"; do
       curl -ksS -A \"AttackEmulator/1.0\" -o /dev/null \"\${base_url%/}\${path}\" || true
     done
     echo \"Completed web scan emulation against \${base_url}\"
