@@ -31,19 +31,3 @@ cscli decisions delete --scenario crowdsecurity/ssh-bf
 cscli decisions delete --scenario crowdsecurity/ssh-slow-bf
 tail -f /var/log/crowdsec.log
 ```{{exec}}
-
-## Web attacks
-
-Once the ssh decision has been removed. Return to the attacker tab, we will run a web scan emulation. However before running this we will do a little trick to forward a local port to the control plane (so we can see the block screen). The below command must be run on node01 NOT the control plane.
-
-`ssh -L 0.0.0.0:8080:controlplane:80 localhost`{{exec interrupt}}
-
-Once connected we can attack the website with the emulator: 
-
-`attack-emulator web-scan http://controlplane`{{exec}}
-
-Then we can check if the attack has been detect by going to this [LINK]({{TRAFFIC_HOST2_8080}})
-
->I just see the default nginx page?
-
->Press ctrl + shift + r to force a reload. This links back to the internal timer on the bouncer it will get the new decisions within 10 seconds.

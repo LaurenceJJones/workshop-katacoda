@@ -51,6 +51,11 @@
         "text": "step4.md"
       },
       {
+        "title": "Web attack mode",
+        "courseData": "step4_1.sh",
+        "text": "step4_1.md"
+      },
+      {
         "title": "Install Dashboard ",
         "text": "step5-1.md"
       }
