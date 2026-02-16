@@ -64,7 +64,7 @@ You should see the following output:
 
 You can see the `403 Forbidden`{{}} response code which means that the request was blocked by the AppSec component. If the request was blocked from within a browser they would see our standard CrowdSec block page.
 
-However, since we have now changed over to using the community rules, our wordpress rule is no longer loaded into the AppSec component. The current configuration file only loads the community rules.
+However, since we switched to community rules, our WordPress rule is no longer loaded into the AppSec component. The current configuration file loads only community rules.
 
 Let's update the configuration file to load both the community rules and our custom rule:
 

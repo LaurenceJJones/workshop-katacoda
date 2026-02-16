@@ -2,11 +2,11 @@
 
 ## CrowdSec Kubernetes Workshop
 
-In this workshop, you will learn how to deploy the security engine (LAPI, log processor or agent and the remediation component) using helm chart, detect/block malicious behaviors, and monitor the activity on your Kubernetes cluster with Traefik as a Ingress Controller with TLS.
+In this workshop, you will learn how to deploy the security engine (LAPI, log processor/agent, and remediation component) using the Helm chart, detect/block malicious behavior, and monitor activity on your Kubernetes cluster with Traefik as an Ingress Controller with TLS.
 
-For the workshop, you will :
+For this workshop, you will:
 
-1- Setup the Kubernetes cluster
+1- Set up the Kubernetes cluster
 
 2- Install the Traefik Ingress Controller
 
@@ -14,12 +14,12 @@ For the workshop, you will :
 
 4- Install the remediation component middleware
 
-5- Install the helloWorld app
+5- Install the HelloWorld app
 
 6- Test the setup
 
 
-### Crowdsec Taxonomy
+### CrowdSec Taxonomy
 
 Word | Description
 ---|---
@@ -30,7 +30,7 @@ Log processor | Does all parsing of logs and communicating with LAPI
 Security Engine | Is the stack that contains LAPI and the Log processor
 Remediation Component | IPS part of CrowdSec. Mitigates risks by ‘blocking’ malicious traffic
 Parser | Parses logs. Written in YAML and GROK
-Scenario |Describes the attack we want to react upon
+Scenario | Describes the attack we want to react to
 Collection | Collection of parsers and/or scenarios for one system or use case
 Postoverflow | Action to execute when a given scenario has been triggered
 Decision | Is generated when a scenario is triggered.

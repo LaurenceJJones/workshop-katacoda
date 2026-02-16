@@ -1,4 +1,4 @@
-We keep seeing bots requesting `wp-login.php`, however, we dont host wordpress so we want to block these requests.
+We keep seeing bots requesting `wp-login.php`; however, we don't host WordPress, so we want to block these requests.
 
 Let's create a rule that will block any request that contains `wp-login.php` within the URI.
 
@@ -23,7 +23,7 @@ rules:
 EOF
 ```{{execute T1}}
 
-Great since we created the rule we need to edit the `AppSec`{{}} configuration file to load the rule.
+Now that we created the rule, we need to edit the `AppSec`{{}} configuration file to load it.
 
 Open `/etc/crowdsec/appsec-configs/appsec-default.yaml` with your favorite editor and add the following line:
 
@@ -42,7 +42,7 @@ Let's restart the AppSec component:
 systemctl restart crowdsec
 ```{{execute T1}}
 
-Let's test our Wordpress rule we implemented earlier:
+Let's test the WordPress rule we implemented earlier:
 
 ```
 curl -s -vv http://127.0.0.1/wp-login.php > /dev/null

@@ -4,7 +4,7 @@ We can try to simulate an attack and verify that the attacker is blocked.
 
 ## Simulate an attack
 
-To test Crowdsec detection, we can simulate an attack by using the bash attack emulator:
+To test CrowdSec detection, we can simulate an attack using the bash attack emulator:
 
 ```bash
 attack-emulator web-scan http://helloworld.local:8000
@@ -12,7 +12,7 @@ attack-emulator web-scan http://helloworld.local:8000
 
 ## Verify the detection
 
-Now, let’s check crowdsec decisions:
+Now, let's check CrowdSec decisions:
 
 ```bash
 kubectl -n crowdsec exec -it $(kubectl -n crowdsec get pods -l type=lapi -o jsonpath='{.items[0].metadata.name}') -- cscli decisions list

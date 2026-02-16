@@ -40,7 +40,7 @@ helm install cert-manager jetstack/cert-manager --create-namespace --namespace c
 helm install reflector emberstack/reflector --create-namespace --namespace reflector
 ```{{exec}}
 
-When Crowdsec will be installed, it will ask cert-manager to create three secret objects for LAPI, agent, and the remediation component (bouncer). Each secret contains three files:
+When CrowdSec is installed, it asks cert-manager to create three secret objects for LAPI, agent, and the remediation component (bouncer). Each secret contains three files:
 
 * `tls.crt`: The certificate file
 * `tls.key`: The private key file

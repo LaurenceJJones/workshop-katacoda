@@ -28,21 +28,21 @@ inband_rules:
 
 See the highlighted line above, it matches the `inband_rules`{{}} in the configuration file.
 
-* `description: "Detect bots attempting wordpress login page"`{{}}: This is a description of the rule, it can be anything you want, however, it is recommended to provide a description so you know what the rule is doing.
+* `description: "Detect bots attempting wordpress login page"`{{}}: This is the rule description. It can be anything you want, but it is recommended to include one so you know what the rule does.
 
-* `rules:`{{}}: This is the start of the rules section, this is where you can define our own DSL rules.
+* `rules:`{{}}: This starts the rules section, where you define your own DSL rules.
 
 We are writing a basic rule that will block any request that contains `wp-login.php`{{}} within the URI. I will break down the rule below:
 
-* `and|or:`{{}}: This is the start of the rule, it is required to state the modifier for each rules. This is the logical operator that will be used to evaluate the rules. In this case, we are using `and`{{}} which means that all conditions must be met for the rule to match.
+* `and|or:`{{}}: This starts the rule. You must set an operator for each rule. This logical operator is used to evaluate the rule. In this case, we use `and`{{}}, which means all conditions must match.
 
 [You can read more on SecLang chain rules](https://coraza.io/docs/seclang/actions/#chain)
 
-* `- zones: - URI`{{}}: This is the start of the zone section, this is where you can define which zones you want to match against. In this case, we are matching against the `URI`{{}} zone. You can define multiple zones within a rule.
+* `- zones: - URI`{{}}: This starts the zone section, where you define which zones to match. In this case, we match against the `URI`{{}} zone. You can define multiple zones in one rule.
 
 Within our DSL we have abstracted the SecLang zones into a more human readable format. You can see our list of supported zones [here](https://docs.crowdsec.net/docs/next/appsec/rules_syntax#target).
 
-* `match:`{{}}: This is the start of the match section, this is where you can define which type of match you want to use. In this case, we are using `contains`{{}} which means that the value must be contained within the zone.
+* `match:`{{}}: This starts the match section, where you define the match type. In this case, we use `contains`{{}}, which means the value must be present within the zone.
 
 Within our DSL we have abstracted the SecLang operator types into a more human readable format. You can see our list of supported match types [here](https://docs.crowdsec.net/docs/next/appsec/rules_syntax#match).
 
@@ -63,7 +63,7 @@ rules:
 EOF
 ```{{execute T1}}
 
-If you would like to see the generate SecLang rule you can run `cscli appsec-rules inspect my/rule`{{execute T1}} and see the rule within the `Modsecurity Format`{{}} section.
+If you would like to see the generated SecLang rule, run `cscli appsec-rules inspect my/rule`{{execute T1}} and check the `Modsecurity Format`{{}} section.
 
 Now we can reload CrowdSec service to enable the AppSec component:
 
@@ -77,4 +77,4 @@ We can ensure the AppSec port is connectable by running a simple nc command:
 nc -zv 127.0.0.1 4242
 ```{{execute T1}}
 
-In the next section we will installing and configure Nginx to use our new AppSec component.
+In the next section, we will install and configure Nginx to use our new AppSec component.

@@ -1,9 +1,9 @@
-Lets point out a key piece of information:
-- The sample data shown **MUST** have been taken from their wordpress eCommerce site.
+Let's point out a key piece of information:
+- The sample data shown **MUST** have been taken from their WordPress eCommerce site.
 
-Lets start with the web server logs. We can use the search bar to search for `event.dataset : nginx.access` to filter down to the apache access logs.
+Let's start with the web server logs. Use the search bar and search for `event.dataset : nginx.access` to filter to Apache access logs.
 
-Now this is still a lot of data and can be quite overwhelming. Sometimes using KQL (Kibana query language) is quite limiting so we are going to switch our to lucence query language. You can do this by clicking on filter dropdown menu to the left of the search bar then switch language at the bottom to **Lucene**.
+This is still a lot of data and can be overwhelming. KQL (Kibana Query Language) can be limiting here, so switch to Lucene query language. Do this by clicking the filter dropdown to the left of the search bar, then switch language at the bottom to **Lucene**.
 
 Now we should filter the logs to see if any query strings have been used. Most commonly in backdoor shells you will see a query string called `cmd` or `q`. We can use the following query to filter down to logs that contain the query string `cmd` or `q`:
 
@@ -11,22 +11,22 @@ Now we should filter the logs to see if any query strings have been used. Most c
 
 **NOTE THIS QUERY ONLY WORKS WITH LUCENE**
 
-Now we can see some suspicious logs. However, there still too many columns active to get a clear view of the logs. We can export the logs to a CSV file and then open them in another program to get a better view of the logs, we can then copy and paste them to our report.
+Now we can see suspicious logs. However, there are still too many active columns to get a clear view. Export the logs to CSV and open them in another program for easier analysis, then copy relevant details into your report.
 
-## Lets search for the attacker IP addresses in other logs
+## Let's search for attacker IP addresses in other logs
 
 ### Firewall logs
-Lets search for the attacker IP addresses in the firewall logs. We can use the search bar to search for `event.dataset : iptables` to filter down to the firewall logs.
+Let's search for attacker IP addresses in firewall logs. Use the search bar with `event.dataset : iptables` to filter to firewall logs.
 
 `event.dataset : iptables.log AND (source.ip: <<IP_ADDRESS>> OR source.ip: <<IP_ADDRESS>>)`
 
 ### SSH logs
 
-Lets search for the attacker IP addresses in the SSH logs. We can use the search bar to search for `event.dataset : system.auth` to filter down to the SSH logs.
+Let's search for attacker IP addresses in SSH logs. Use the search bar with `event.dataset : system.auth` to filter to SSH logs.
 
 `event.dataset : system.auth AND (source.ip: <<IP_ADDRESS>> OR source.ip: <<IP_ADDRESS>>)`
 
-## Lets search for the IP addresses on OSINT sites
+## Let's search for IP addresses on OSINT sites
 
 ### Shodan
 
